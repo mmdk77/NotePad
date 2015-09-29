@@ -64,7 +64,7 @@ public class NotePadFrame extends JFrame {
 		menubar.add(viewMenu);
 		menubar.add(helpMenu);
 		
-		fileMenu.setMnemonic('F');  // 단축키 alt + O (니모니킥)
+		fileMenu.setMnemonic('F');  // 단축키 alt + O (니모닉 키)
 		editMenu.setMnemonic('E');
 		viewMenu.setMnemonic('V');
 		helpMenu.setMnemonic('H');
