@@ -21,19 +21,23 @@ public class ServerFrame extends JFrame{
 		
 	
 		con.add(lb);
-		this.setLayout(new FlowLayout(FlowLayout.LEADING));
-		information();
+		this.setLayout(new GridLayout(5,1));
+		addMoiveInfo();
 		reservation();
 		
 	}
-	public void information(){
+	public void addMoiveInfo(){
+		
 		btn1 = new JButton("영화정보입력");
-		this.add(btn1);
+		con.add(btn1);
+		this.setVisible(true);
 
 	}
 	public void reservation(){
+		
 		btn2 = new JButton("예매율");
-		this.add(btn2);
+		con.add(btn2);
+		this.setVisible(true);
 
 		
 	}
