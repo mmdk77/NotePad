@@ -13,15 +13,18 @@ public class MovieFrame extends JFrame{
 	public MovieFrame(){	//영화예매화면
 		
 		super("영화예매"); 			//프로그램 타이틀
-		this.setSize(300,500);
+		this.setSize(300,350);
 		this.setVisible(true);
+		this.setResizable(false);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		
 		createMenuBar();
 		movieInfo();
 		movieSchedule();
 	} //end of MoiveFrame
 	
-	public void createMenuBar(){					//Menu만들기
+	private void createMenuBar(){					//Menu만들기
 		
 		menubar = new JMenuBar();		//메뉴를 넣을 bar의 객체 생성
 		homeMenu = new JMenu("홈");		//메뉴 객체 생성
