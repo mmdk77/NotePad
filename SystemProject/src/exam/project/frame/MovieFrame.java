@@ -1,14 +1,23 @@
 package exam.project.frame;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.*;
+
+import exam.project.dialog.LoginDialog;
 
 public class MovieFrame extends JFrame{
 	private JButton btn1,btn2,btn3,btn4,btn5;
 	private JMenuBar menubar;
 	private JMenu homeMenu;
 	private JMenuItem login,exit;
+	
+	private SpinnerModel model;
+	private JSpinner spinner;
+	
+	private Container con = getContentPane();
 	
 	public MovieFrame(){	//영화예매화면
 		
@@ -22,6 +31,8 @@ public class MovieFrame extends JFrame{
 		createMenuBar();
 		movieInfo();
 		movieSchedule();
+		addEventListener();
+		
 	} //end of MoiveFrame
 	
 	private void createMenuBar(){					//Menu만들기
@@ -64,8 +75,8 @@ public class MovieFrame extends JFrame{
 	
 	public void movieSchedule(){
 		
-		SpinnerModel model = new SpinnerDateModel();
-	    JSpinner spinner = new JSpinner(model);
+		model = new SpinnerDateModel();
+		spinner = new JSpinner(model);
 	    
 	    JLabel label = new JLabel(" 날짜/시간 "); //날짜: 년/월/일
 	    JPanel panel = new JPanel();
@@ -76,6 +87,27 @@ public class MovieFrame extends JFrame{
 	    this.setVisible(true);
 	   
 	}//end of movieSchedule
+	
+	public void addEventListener(){
+		login.addActionListener(new EventListener());
+		
+	}//end of addEventListener
+	
+	class EventListener implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			// TODO Auto-generated method stub
+			Object obj = e.getSource();
+			
+			if(obj == login){
+				LoginDialog login = new LoginDialog(MovieFrame.this);
+			}
+			
+		}
+		
+		
+	}
 	
 }//end of class
 
