@@ -32,7 +32,6 @@ public class MovieFrame extends JFrame{
 		movieInfo();
 		movieSchedule();
 		addEventListener();
-		
 	} //end of MoiveFrame
 	
 	private void createMenuBar(){					//Menu¸¸µé±â
@@ -90,7 +89,6 @@ public class MovieFrame extends JFrame{
 	
 	public void addEventListener(){
 		login.addActionListener(new EventListener());
-		
 	}//end of addEventListener
 	
 	class EventListener implements ActionListener{
