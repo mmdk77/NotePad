@@ -3,6 +3,7 @@ package exam.project.frame;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
 
 import javax.swing.*;
 
@@ -88,6 +89,7 @@ public class MovieFrame extends JFrame{
 	}//end of movieSchedule
 	
 	public void addEventListener(){
+		
 		login.addActionListener(new EventListener());
 	}//end of addEventListener
 	
@@ -101,8 +103,11 @@ public class MovieFrame extends JFrame{
 			if(obj == login){
 				LoginDialog login = new LoginDialog(MovieFrame.this);
 			}
+	
 			
 		}
+		
+		
 		
 		
 	}
