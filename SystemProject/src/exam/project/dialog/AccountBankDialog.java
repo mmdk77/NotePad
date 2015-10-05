@@ -14,7 +14,7 @@ import exam.project.frame.MovieFrame;
 
 public class AccountBankDialog extends JDialog{
 
-	private MovieFrame MF;
+	private MovieFrame mf;
 	private JPanel p,p1,p2;
 	private JLabel jl,jl1;
 	private JTextField tf; 
@@ -22,9 +22,10 @@ public class AccountBankDialog extends JDialog{
 	private JButton b1,b2; 
 	private Container con = getContentPane();
 
-	public AccountBankDialog(MovieFrame MF){
+	public AccountBankDialog(MovieFrame mf){
 
-		this.setTitle("결제");
+		super(mf,"결제창",false);
+		this.mf = mf;
 		this.setSize(400, 300); 
 		this.setVisible(true); 
 
@@ -41,7 +42,7 @@ public class AccountBankDialog extends JDialog{
 
 		b1 = new JButton("결제하기");
 		b2 = new JButton("취소");
-
+		
 		p.add(jl); 
 		p.add(tf);
 

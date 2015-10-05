@@ -11,7 +11,7 @@ import exam.project.frame.MovieFrame;
 public class LoginDialog extends JDialog {
 
 	public static final String CloseAction = null;
-	private MovieFrame MF;
+	private MovieFrame mf;
 	private JButton btnlogin,btnClose;
 	private JLabel id,pwd,test;
 	private JPanel p1,p2,p3,p4;
@@ -20,10 +20,10 @@ public class LoginDialog extends JDialog {
 	private Container con = getContentPane();
 
 
-	public LoginDialog(MovieFrame MF){
+	public LoginDialog(MovieFrame mf){
 
-		super(MF,"로그인",false);
-		this.MF = MF;
+		super(mf,"로그인",false);
+		this.mf = mf;
 		this.setSize(300,200);
 		this.setVisible(true);
 
