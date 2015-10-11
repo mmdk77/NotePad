@@ -30,6 +30,7 @@ public class LoginDialog extends JDialog {
 		loginUi();
 		eventListener();
 	}//end of LoginDialog
+	
 	public void loginUi(){
 
 		p1 = new JPanel();
@@ -62,7 +63,6 @@ public class LoginDialog extends JDialog {
 		con.add(p2,"Center");
 		con.add(p3,"South");	
 
-		this.setVisible(true);
 
 	}//end of loginUi
 

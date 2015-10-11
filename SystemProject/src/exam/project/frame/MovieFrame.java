@@ -9,7 +9,8 @@ import exam.project.dialog.LoginDialog;
 
 public class MovieFrame extends JFrame{
 	
-	private JButton btn1,btn2,btn3,btn4,btn5;
+	private JPanel panel;
+	private JButton moive,ago,next,reservetion,cancel;
 	private JMenuBar menubar;
 	private JMenu homeMenu;
 	private JMenuItem login,exit;
@@ -53,19 +54,19 @@ public class MovieFrame extends JFrame{
 
 	public void movieInfo(){
 
-		btn1 = new JButton(new ImageIcon("123.jpg")); //영화 포스터 사진
-		btn2 = new JButton("◀");					  //이전영화
-		btn3 = new JButton("▶");					  //다음영화
-		btn4 = new JButton("예매");					  //예매하기
-		btn5 = new JButton("취소");					  //취소하기
+		moive = new JButton(new ImageIcon("123.jpg")); //영화 포스터 사진
+		ago = new JButton("◀");					  //이전영화
+		next = new JButton("▶");					  //다음영화
+		reservetion = new JButton("예매");					  //예매하기
+		cancel = new JButton("취소");					  //취소하기
 
 		setLayout(new FlowLayout(FlowLayout.CENTER));
 
-		add(btn1);
-		add(btn2);
-		add(btn3);
-		add(btn4);
-		add(btn5);
+		add(moive);
+		add(ago);
+		add(next);
+		add(reservetion);
+		add(cancel);
 
 		this.setVisible(true);
 
@@ -90,7 +91,7 @@ public class MovieFrame extends JFrame{
 	public void addEventListener(){
 
 		login.addActionListener(new EventListener());
-		btn4.addActionListener(new EventListener());
+		reservetion.addActionListener(new EventListener());
 	}//end of addEventListener
 
 	class EventListener implements ActionListener{
@@ -103,7 +104,7 @@ public class MovieFrame extends JFrame{
 			if(obj == login){
 				LoginDialog login = new LoginDialog(MovieFrame.this);
 			}
-			else if(obj == btn4){
+			else if(obj == reservetion){
 				AccountBankDialog bank = new AccountBankDialog(MovieFrame.this);
 			}
 
