@@ -3,14 +3,17 @@ package exam.project.frame;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 import javax.swing.*;
+
 import exam.project.dialog.AccountBankDialog;
 import exam.project.dialog.LoginDialog;
+import exam.project.dialog.MovieInfoDialog;
 
 public class MovieFrame extends JFrame{
 	
 	private JPanel panel;
-	private JButton moive,ago,next,reservetion,cancel;
+	private JButton movie,ago,next,reservetion,cancel;
 	private JMenuBar menubar;
 	private JMenu homeMenu;
 	private JMenuItem login,exit;
@@ -54,7 +57,7 @@ public class MovieFrame extends JFrame{
 
 	public void movieInfo(){
 
-		moive = new JButton(new ImageIcon("123.jpg")); //영화 포스터 사진
+		movie = new JButton(new ImageIcon("123.jpg")); //영화 포스터 사진
 		ago = new JButton("◀");					  //이전영화
 		next = new JButton("▶");					  //다음영화
 		reservetion = new JButton("예매");					  //예매하기
@@ -62,7 +65,7 @@ public class MovieFrame extends JFrame{
 
 		setLayout(new FlowLayout(FlowLayout.CENTER));
 
-		add(moive);
+		add(movie);
 		add(ago);
 		add(next);
 		add(reservetion);
@@ -92,6 +95,12 @@ public class MovieFrame extends JFrame{
 
 		login.addActionListener(new EventListener());
 		reservetion.addActionListener(new EventListener());
+		movie.addActionListener(new EventListener());
+		
+		//종료
+		cancel.addActionListener(new EventListener());
+		exit.addActionListener(new EventListener());
+		
 	}//end of addEventListener
 
 	class EventListener implements ActionListener{
@@ -106,6 +115,15 @@ public class MovieFrame extends JFrame{
 			}
 			else if(obj == reservetion){
 				AccountBankDialog bank = new AccountBankDialog(MovieFrame.this);
+			}
+			else if(obj == movie){
+				MovieInfoDialog mid = new MovieInfoDialog(MovieFrame.this);
+			}
+			else if(obj == cancel){
+				System.exit(0);
+			}
+			else if(obj == exit){
+				System.exit(0);
 			}
 
 

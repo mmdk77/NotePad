@@ -7,6 +7,7 @@ import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
+import exam.project.frame.MovieFrame;
 import exam.project.server.ServerFrame;
 
 public class MovieInfoDialog extends JDialog {
@@ -20,8 +21,15 @@ public class MovieInfoDialog extends JDialog {
 		
 		movieInfoUi();
 		this.setVisible(true);
-
 			
+	}
+	public MovieInfoDialog(MovieFrame mf){
+		
+		super(mf,"영화정보",false);
+		this.setSize(350,400);
+		
+		movieInfoUi();
+		this.setVisible(true);
 	}
 
 	public void movieInfoUi(){
