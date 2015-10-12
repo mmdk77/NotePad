@@ -14,7 +14,7 @@ public class LoginDialog extends JDialog {
 	private MovieFrame mf;
 	private JButton btnlogin,btnClose;
 	private JLabel id,pwd,test;
-	private JPanel p1,p2,p3,p4;
+	private JPanel panel_1,panel_2,panel_3,panel_4;
 	private JTextField idInput;
 	private JPasswordField pwdInput;
 	private Container con = getContentPane();
@@ -28,45 +28,44 @@ public class LoginDialog extends JDialog {
 		this.setVisible(true);
 
 		loginUi();
-		eventListener();
+		addEventListener();
 	}//end of LoginDialog
 	
 	public void loginUi(){
 
-		p1 = new JPanel();
-		p2 = new JPanel();
-		p3 = new JPanel();
-
-		p1.setLayout(new GridLayout(0,1,20,5));	
-		id = new JLabel("로그인");
-		pwd = new JLabel("패스워드");
+		panel_1 = new JPanel();
+		panel_2 = new JPanel();
+		panel_3 = new JPanel();
+		id = new JLabel("      ID");
+		pwd = new JLabel("Password");
 		test = new JLabel("버튼 이벤트 확인용");
-
-		p1.add(id);
-		p1.add(pwd);
-
-
-		p2.setLayout(new GridLayout(0,1,20,5));
+		panel_1.setLayout(new GridLayout(0, 1, 0, 0));
+		
+		panel_1.add(id);
+		panel_1.add(pwd);
 		idInput = new JTextField();
+		idInput.setBounds(20, 15, 144, 32);
 		pwdInput = new JPasswordField();			
-		p2.add(idInput);
-		p2.add(pwdInput);
+		pwdInput.setBounds(20, 75, 144, 32);
+		panel_2.setLayout(null);
+		panel_2.add(idInput);
+		panel_2.add(pwdInput);
 
 		btnlogin = new JButton("로그인");
 		btnClose = new JButton("취소");
 
-		p3.add(btnlogin);
-		p3.add(btnClose);
-		p3.add(test);
+		panel_3.add(btnlogin);
+		panel_3.add(btnClose);
+		panel_3.add(test);
 
-		con.add(p1,"West");
-		con.add(p2,"Center");
-		con.add(p3,"South");	
+		con.add(panel_1,"West");
+		con.add(panel_2,"Center");
+		con.add(panel_3,"South");	
 
 
 	}//end of loginUi
 
-	public void eventListener(){	
+	public void addEventListener(){	
 
 		btnClose.addActionListener(new EventListener());
 		btnlogin.addActionListener(new EventListener());

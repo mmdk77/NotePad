@@ -12,7 +12,6 @@ import exam.project.server.ServerFrame;
 
 public class MovieInfoDialog extends JDialog {
 	
-	
 
 	public MovieInfoDialog(ServerFrame sf){
 
@@ -23,6 +22,7 @@ public class MovieInfoDialog extends JDialog {
 		this.setVisible(true);
 			
 	}
+
 	public MovieInfoDialog(MovieFrame mf){
 		
 		super(mf,"영화정보",false);
@@ -51,7 +51,7 @@ public class MovieInfoDialog extends JDialog {
 		JPanel p = new JPanel();
 		p.add(jp1);
 		p.add(jp2);
-		add(p);
+		getContentPane().add(p);
 
 	}
 
