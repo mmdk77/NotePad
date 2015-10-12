@@ -95,13 +95,14 @@ public class AccountBankDialog extends JDialog{
 		
 		this.add(panel_1);
 
-	}// end of accountUi
+	}// end of accountUI
 	
 	public void addEventListener(){
+		
 		account.addActionListener(new EventListener());
 		cancel.addActionListener(new EventListener());
 		
-	}
+	}// end of addEventListener
 	
 	class EventListener implements ActionListener{
 
@@ -116,11 +117,11 @@ public class AccountBankDialog extends JDialog{
 			} //end of if
 			else if(strCmd.equals("취소")){
 				test.setText("취소"); 		//이전단계로 돌아갈수 있도록 만들어야함
-			}
-		}
+			} //end of else if
+		}//end of actionPerformed
 		
-	}
+	}//end of EventListener class
 
-} //end of class
+} //end of AccountBankDialog class
 
 
