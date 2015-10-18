@@ -1,9 +1,5 @@
 package exam.project.dto;
 
-import javax.swing.JPasswordField;
-import javax.swing.JRadioButton;
-import javax.swing.JTextField;
-
 public class UserData {
 	
 	private String id;
