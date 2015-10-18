@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
+import exam.project.dto.UserData;
 import exam.project.frame.MovieFrame;
 
 public class LoginDialog extends JDialog {
@@ -80,6 +81,7 @@ public class LoginDialog extends JDialog {
 			// TODO Auto-generated method stub
 			Object obj = e.getSource();
 			String strCmd = e.getActionCommand();
+		
 
 			if(strCmd.equals("로그인")){
 				test.setText("로그인");
