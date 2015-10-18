@@ -1,5 +1,6 @@
 package exam.project.dto;
 
+
 public class UserData {
 	
 	private String id;
@@ -11,8 +12,8 @@ public class UserData {
 	public String getId() {
 		return id;
 	}
-	public void setId(String id2) {
-		this.id = id2;
+	public void setId(String id) {
+		this.id = id;
 	}
 	public int getPwd() {
 		return pwd;
@@ -38,6 +39,7 @@ public class UserData {
 	public void setSex(boolean sex) {
 		this.sex = sex;
 	}
+
 	
 	
 	

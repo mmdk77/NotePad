@@ -13,6 +13,7 @@ import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
+import exam.project.dao.UserDAO;
 import exam.project.dto.UserData;
 import exam.project.frame.MovieFrame;
 
@@ -23,7 +24,7 @@ public class JoinDialog extends JDialog{
 	private ButtonGroup sex;
 	private JLabel lb_1,lb_2,lb_3,lb_4,lb_5;
 	private JTextField name,age,id;
-	private JPasswordField pwd,repwd;
+	private JPasswordField pwd,rePwd;
 
 	private JLabel test;
 
@@ -57,7 +58,7 @@ public class JoinDialog extends JDialog{
 		lb_2 = new JLabel(" Password : ");
 		lb_3 = new JLabel(" RePassword : ");
 		pwd = new JPasswordField();
-		repwd = new JPasswordField();
+		rePwd = new JPasswordField();
 
 		lb_2.setBounds(27, 79, 100, 30);		//Password(Label) 위치와 크기설정
 		lb_3.setBounds(12, 119, 100, 30);		//RePassword(Label) 위치와 크기설정
@@ -65,9 +66,9 @@ public class JoinDialog extends JDialog{
 		panel_1.add(lb_3);
 
 		pwd.setBounds(100, 80, 130, 29);		//Password(PasswordField) 위치와 크기설정
-		repwd.setBounds(100, 120, 130, 29);		//RePassword(PasswordField) 위치와 크기설정
+		rePwd.setBounds(100, 120, 130, 29);		//RePassword(PasswordField) 위치와 크기설정
 		panel_1.add(pwd);						// => Password와 RePassword가 같아야 회원가입이 가능해야함
-		panel_1.add(repwd);
+		panel_1.add(rePwd);
 
 
 		lb_4 = new JLabel(" 이 름 : ");
@@ -124,12 +125,13 @@ public class JoinDialog extends JDialog{
 			Object obj = e.getSource();
 			String strCmd = e.getActionCommand();
 			
-			UserData userDate = new UserData();
-
-			userDate.setId(id);
-			userDate.setPwd(pwd);
-			userDate.setRePwd(repwd);
-			userDate.setName(name);;
+			UserData user = new UserData();
+			
+			user.setId(id);;
+			user.setPwd(pwd);;
+			user.setRePwd(rePwd);;
+			user.setName(name);;
+			
 
 			if(strCmd.equals("확인")){
 				test.setText("확인");   		//DB에 데이터들어갈수 있도록 만들어야함

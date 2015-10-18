@@ -6,11 +6,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import javax.swing.JTextField;
+
 import exam.project.dto.Movie;
 import exam.project.dto.UserData;
 
 public class UserDAO {
-	
+
 	private Connection con;
 	private PreparedStatement pstmt;
 	private ResultSet rs;
@@ -30,30 +32,28 @@ public class UserDAO {
 	}
 	public int insertUserInfo(UserData user){
 		String sql = "insert into movie values(?,?,?,?,?)";
-		
+
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, user.getId());
 			pstmt.setInt(2, user.getPwd());
 			pstmt.setInt(3, user.getRePwd());
 			pstmt.setString(4, user.getName());
-			
-			
+
+
 			int result;
-			
+
 			result = pstmt.executeUpdate();
-			
+
 			if(result != 0)
 				return result;
-			
-			
+
+
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return 0;
-		
-
-
+		return 0;	
 	}
 }
+
