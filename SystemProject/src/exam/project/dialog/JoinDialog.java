@@ -132,6 +132,10 @@ public class JoinDialog extends JDialog{
 			user.setRePwd(rePwd);;
 			user.setName(name);;
 			
+			UserDAO dao = new UserDAO();
+			
+			int result = dao.insertUserInfo(user);
+			
 
 			if(strCmd.equals("확인")){
 				test.setText("확인");   		//DB에 데이터들어갈수 있도록 만들어야함
