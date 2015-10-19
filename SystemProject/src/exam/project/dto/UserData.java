@@ -1,11 +1,10 @@
 package exam.project.dto;
 
-
 public class UserData {
 	
 	private String id;
-	private int pwd;
-	private int rePwd;
+	private String pwd;
+	private String rePwd;
 	private String name;
 	private boolean sex;
 	
@@ -15,16 +14,16 @@ public class UserData {
 	public void setId(String id) {
 		this.id = id;
 	}
-	public int getPwd() {
+	public String getPwd() {
 		return pwd;
 	}
-	public void setPwd(int pwd) {
+	public void setPwd(String pwd) {
 		this.pwd = pwd;
 	}
-	public int getRePwd() {
+	public String getRePwd() {
 		return rePwd;
 	}
-	public void setRePwd(int rePwd) {
+	public void setRePwd(String rePwd) {
 		this.rePwd = rePwd;
 	}
 	public String getName() {
