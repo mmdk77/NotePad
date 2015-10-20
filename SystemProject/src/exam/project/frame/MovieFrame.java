@@ -114,10 +114,12 @@ public class MovieFrame extends JFrame{
 	}//end of movieSchedule
 
 	public void addEventListener(){
-
+		
+		//menuBar 이벤트
 		login.addActionListener(new EventListener());
 		join.addActionListener(new EventListener());
 		
+		//화면 버튼 이벤트
 		reservetion.addActionListener(new EventListener());
 		movie.addActionListener(new EventListener());
 		
@@ -152,10 +154,10 @@ public class MovieFrame extends JFrame{
 			}
 	
 
-		}
+		}//end of actionPerformed
 
 
-	}
+	}//end of EventActionClass
 
 }//end of class
 

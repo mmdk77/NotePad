@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
-import exam.project.dto.UserData;
+import exam.project.data.UserData;
 import exam.project.frame.MovieFrame;
 
 public class LoginDialog extends JDialog {
@@ -26,10 +26,11 @@ public class LoginDialog extends JDialog {
 		super(mf,"·Î±×ÀÎ",false);
 		this.mf = mf;
 		this.setSize(300,200);
-		this.setVisible(true);
-
+		
 		loginUi();
 		addEventListener();
+		
+		this.setVisible(true);
 	}//end of LoginDialog
 	
 	public void loginUi(){

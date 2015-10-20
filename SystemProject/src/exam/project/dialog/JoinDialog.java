@@ -131,13 +131,14 @@ public class JoinDialog extends JDialog{
 		public void actionPerformed(ActionEvent e) {
 			// TODO Auto-generated method stub
 			Object obj = e.getSource(); 
-			
+
 			if(obj == agree){
+
 				try {
 					Class.forName("com.mysql.jdbc.Driver");
 					con = DriverManager.getConnection("jdbc:mysql://localhost:3306/user","root", "1234");
 
-					String sql = "insert into movie values(?,?,?,?,?)";
+					String sql = "insert into userData values(?,?,?,?,?)";
 
 					pstmt = con.prepareStatement(sql);
 
@@ -164,6 +165,8 @@ public class JoinDialog extends JDialog{
 			}else if(obj == cancel){
 				System.exit(0);
 			}
+
+
 		}
 	}//end of EventAction class
 }//end of JoinDialog class
