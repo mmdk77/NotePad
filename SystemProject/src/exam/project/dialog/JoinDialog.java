@@ -6,19 +6,27 @@ import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
 
+
+
+
+
+
+
+import exam.project.DAO.UserDAO;
+import exam.project.DTO.UserData;
 import exam.project.frame.MovieFrame;
 
 public class JoinDialog extends JDialog{
@@ -26,7 +34,6 @@ public class JoinDialog extends JDialog{
 	public static final Object arg0 = null;
 	private Connection con;
 	private PreparedStatement pstmt;
-	private ResultSet rs;
 
 	private JPanel panel_1;
 	private JButton agree,cancel;
@@ -120,6 +127,31 @@ public class JoinDialog extends JDialog{
 		contain.add(panel_1);
 
 	}
+	public UserData getViewData(){
+
+		UserData data = new UserData();
+		
+		String sId = id.getText();
+		String sPwd = new String (pwd.getPassword());
+		String sRePwd = new String (rePwd.getPassword());
+		String sName = name.getText();
+		String sSex = "";
+		if(male.isSelected()){
+			sSex = "남자";
+		}else if(female.isSelected()){
+			sSex = "여자";
+		}
+
+		data.setId(sId);
+		data.setPwd(sPwd);
+		data.setRePwd(sRePwd);
+		data.setName(sName);
+		data.setSex(sSex);
+
+		return data;
+	}
+
+
 	public void addEventListener(){
 		agree.addActionListener(new EvnetListener());
 		cancel.addActionListener(new EvnetListener());
@@ -132,42 +164,22 @@ public class JoinDialog extends JDialog{
 			// TODO Auto-generated method stub
 			Object obj = e.getSource(); 
 
+			UserDAO dao = new UserDAO();
+			UserData data = getViewData();
+
 			if(obj == agree){
-
-				try {
-					Class.forName("com.mysql.jdbc.Driver");
-					con = DriverManager.getConnection("jdbc:mysql://localhost:3306/user","root", "1234");
-
-					String sql = "insert into userData values(?,?,?,?,?)";
-
-					pstmt = con.prepareStatement(sql);
-
-					pstmt.setString(1,id.getText());
-					pstmt.setString(2, new String(pwd.getPassword()));
-					pstmt.setString(3, new String(rePwd.getPassword()));
-					pstmt.setString(4, name.getText());
-					if(male.isSelected()){
-						pstmt.setInt(5, 1);
-					}else if(female.isSelected()){
-						pstmt.setInt(5, 2);
-					}
-					pstmt.executeUpdate();
-					pstmt.close();
-					con.close();
-
-				} catch (ClassNotFoundException ex) {
-					// TODO Auto-generated catch block
-					ex.printStackTrace();
-				} catch (SQLException ex) {
-					// TODO Auto-generated catch block
-					ex.printStackTrace();
+				boolean ok = dao.insertUser(data);
+				System.out.println("insertMember() 호출 종료");
+				if(ok){
+					JOptionPane.showInputDialog(this, "가입이 완료 되었습니다.");
+				}else{
+					JOptionPane.showInputDialog(this, "가입이 정상적으로 처리되지 못했습니다.");
 				}
 			}else if(obj == cancel){
 				System.exit(0);
+
 			}
-
-
 		}
+
 	}//end of EventAction class
 }//end of JoinDialog class
-

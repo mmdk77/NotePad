@@ -11,13 +11,6 @@ import exam.project.dialog.JoinDialog;
 import exam.project.dialog.LoginDialog;
 import exam.project.dialog.MovieInfoDialog;
 
-import javax.swing.border.TitledBorder;
-import javax.swing.GroupLayout.Alignment;
-import javax.swing.LayoutStyle.ComponentPlacement;
-
-import com.jgoodies.forms.layout.FormLayout;
-import com.jgoodies.forms.layout.ColumnSpec;
-import com.jgoodies.forms.layout.RowSpec;
 
 public class MovieFrame extends JFrame{
 

@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
-import exam.project.data.UserData;
+import exam.project.DTO.UserData;
 import exam.project.frame.MovieFrame;
 
 public class LoginDialog extends JDialog {

@@ -1,4 +1,4 @@
-package exam.project.data;
+package exam.project.DTO;
 
 import java.sql.Date;
 import java.sql.Time;

@@ -1,4 +1,4 @@
-package exam.project.data;
+package exam.project.DTO;
 
 public class UserData {
 	
@@ -6,7 +6,7 @@ public class UserData {
 	private String pwd;
 	private String rePwd;
 	private String name;
-	private boolean sex;
+	private String sex;
 	
 	public String getId() {
 		return id;
@@ -32,10 +32,10 @@ public class UserData {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public boolean isSex() {
+	public String getSex() {
 		return sex;
 	}
-	public void setSex(boolean sex) {
+	public void setSex(String sex) {
 		this.sex = sex;
 	}
 

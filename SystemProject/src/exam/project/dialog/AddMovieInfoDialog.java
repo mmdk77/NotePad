@@ -12,8 +12,6 @@ public class AddMovieInfoDialog extends JDialog {
 		//추가
 		super(sf,"영화정보입력",false);
 		this.setSize(300,300);
-
-
 		
 		this.setVisible(true);
 	}
