@@ -84,8 +84,6 @@ public class MovieInfoDialog extends JDialog {
 
 	class EventListener implements ListSelectionListener,ActionListener{
 
-		private AbstractButton img_3;
-
 		@Override
 		public void valueChanged(ListSelectionEvent e) {
 			// TODO Auto-generated method stub

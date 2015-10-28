@@ -5,12 +5,14 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Vector;
 
 import exam.project.DTO.UserData;
-import exam.project.dialog.JoinDialog;
 
 public class UserDAO {
+
 	private Connection con;
 	private PreparedStatement pstmt;
 	private ResultSet rs;
@@ -44,57 +46,62 @@ public class UserDAO {
 			pstmt.setString(3, user.getRePwd());
 			pstmt.setString(4, user.getName());
 			pstmt.setString(5, user.getSex());
-			
+
 			int rs = pstmt.executeUpdate();
-			
+
 			if(rs>0){
 				ok = true;
 				System.out.println("가입성공");
 			}else{
 				System.out.println("가입실패");
 			}
-			
+
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return ok;
 	}// end of insertUser
-	
+
 	//회원등록
-	public Vector<String> getUserList(){
-		
-		Vector<String> data = new Vector<String>();
-		
+	public ArrayList<UserData> getUserList(){
+
 		String sql ="select * from userData order by name asc";
+		ArrayList<UserData> data = new ArrayList<UserData>();
+
 		try {
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
-			
+
 			while(rs.next()){
 				String sId = rs.getString("id");
-				String sPwd = rs.getString("pwd");
+				String sPwd = rs.getString("Pwd");
 				String sRePwd = rs.getString("rePwd");
 				String sName = rs.getString("name");
 				String sSex = rs.getString("sex");
-				
-				Vector<String> row = new Vector<String>();
-				row.add(sId);
-				row.add(sPwd);
-				row.add(sRePwd);
-				row.add(sName);
-				row.add(sSex);
-				
-				data.addAll(row);
+
+				UserData ud = new UserData(sId, sPwd, sRePwd, sName, sSex);
+
+				data.add(ud);
+
 			}//end of while
-			
+			return data;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			return null;
+		}finally{
+			try {
+				if(rs!=null)rs.close();
+				if(pstmt!=null)pstmt.close();
+				if(con!=null)con.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
 		}
-		
-		return data;
-		
+
 	}
 
 }

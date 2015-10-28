@@ -8,6 +8,17 @@ public class UserData {
 	private String name;
 	private String sex;
 	
+	
+	public UserData(String id,String pwd,String rePwd,String name,String sex){
+		this.id = id;
+		this.pwd = pwd;
+		this.rePwd = rePwd;
+		this.name = name;
+		
+	}
+	public UserData(){
+		
+	}
 	public String getId() {
 		return id;
 	}

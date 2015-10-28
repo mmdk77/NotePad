@@ -18,22 +18,11 @@ import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
-
-
-
-
-
-
-
 import exam.project.DAO.UserDAO;
 import exam.project.DTO.UserData;
 import exam.project.frame.MovieFrame;
 
 public class JoinDialog extends JDialog{
-
-	public static final Object arg0 = null;
-	private Connection con;
-	private PreparedStatement pstmt;
 
 	private JPanel panel_1;
 	private JButton agree,cancel;
@@ -137,9 +126,9 @@ public class JoinDialog extends JDialog{
 		String sName = name.getText();
 		String sSex = "";
 		if(male.isSelected()){
-			sSex = "남자";
+			sSex = "male";
 		}else if(female.isSelected()){
-			sSex = "여자";
+			sSex = "female";
 		}
 
 		data.setId(sId);
@@ -177,7 +166,6 @@ public class JoinDialog extends JDialog{
 				}
 			}else if(obj == cancel){
 				System.exit(0);
-
 			}
 		}
 

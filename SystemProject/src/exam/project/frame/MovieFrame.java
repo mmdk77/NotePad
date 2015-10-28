@@ -5,6 +5,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.*;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 
 import exam.project.dialog.AccountBankDialog;
 import exam.project.dialog.JoinDialog;
@@ -123,7 +125,7 @@ public class MovieFrame extends JFrame{
 
 	}//end of addEventListener
 
-	class EventListener implements ActionListener{
+	class EventListener implements ActionListener,ListSelectionListener{
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
@@ -148,6 +150,14 @@ public class MovieFrame extends JFrame{
 	
 
 		}//end of actionPerformed
+
+		@Override
+		public void valueChanged(ListSelectionEvent e) {
+			// TODO Auto-generated method stub
+			if(ago.getSelectedIcon() == null){
+				
+			}
+		}
 
 
 	}//end of EventActionClass
