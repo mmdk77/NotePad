@@ -121,8 +121,8 @@ public class JoinDialog extends JDialog{
 		UserData data = new UserData();
 		
 		String sId = id.getText();
-		String sPwd = new String (pwd.getPassword());
-		String sRePwd = new String (rePwd.getPassword());
+		String sPwd = new String(pwd.getPassword());
+		String sRePwd = new String(rePwd.getPassword());
 		String sName = name.getText();
 		String sSex = "";
 		if(male.isSelected()){

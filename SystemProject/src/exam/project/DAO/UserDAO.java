@@ -63,7 +63,7 @@ public class UserDAO {
 		return ok;
 	}// end of insertUser
 
-	//회원등록
+	//회원정보
 	public ArrayList<UserData> getUserList(){
 
 		String sql ="select * from userData order by name asc";
@@ -75,7 +75,7 @@ public class UserDAO {
 
 			while(rs.next()){
 				String sId = rs.getString("id");
-				String sPwd = rs.getString("Pwd");
+				String sPwd = rs.getString("pwd");
 				String sRePwd = rs.getString("rePwd");
 				String sName = rs.getString("name");
 				String sSex = rs.getString("sex");
@@ -85,22 +85,60 @@ public class UserDAO {
 				data.add(ud);
 
 			}//end of while
-			return data;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			return null;
 		}finally{
 			try {
-				if(rs!=null)rs.close();
-				if(pstmt!=null)pstmt.close();
-				if(con!=null)con.close();
+				if(rs!=null)
+					rs.close();
+				if(pstmt!=null)
+					pstmt.close();
+				if(con!=null)
+					con.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}//end of catch
+		}//end of finally
+		return data;
+	}//end of getUserList()
+
+	//로그인
+	public ArrayList<UserData> userLogin(){
+
+		String sql ="select id,pwd from userData";
+		ArrayList<UserData> data = new ArrayList<UserData>();
+
+		try {
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+
+			if(rs.next()){
+				String sId = rs.getString("id");
+				String sPwd = rs.getString("pwd");
+				UserData ud = new UserData(sId, sPwd);
+				data.add(ud);
+			}
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally{
+			try {
+				if(rs!=null)
+					rs.close();
+				if(pstmt!=null)
+					pstmt.close();
+				if(con!=null)
+					con.close();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-
 		}
+		return data;
+
 
 	}
 

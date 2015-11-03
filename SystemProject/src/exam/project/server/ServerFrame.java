@@ -69,6 +69,7 @@ public class ServerFrame extends JFrame{
 		
 		movieInfo.addActionListener(new EventListener());
 		userInfo.addActionListener(new EventListener());
+		addMovieInfo.addActionListener(new EventListener());
 		
 	}//end of EventListener
 	

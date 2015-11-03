@@ -14,8 +14,13 @@ public class UserData {
 		this.pwd = pwd;
 		this.rePwd = rePwd;
 		this.name = name;
-		
 	}
+	
+	public UserData(String id,String pwd){
+		this.id = id;
+		this.pwd = pwd;
+	}
+	
 	public UserData(){
 		
 	}
