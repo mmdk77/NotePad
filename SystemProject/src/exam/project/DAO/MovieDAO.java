@@ -21,7 +21,7 @@ public class MovieDAO {
 	public MovieDAO(){
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/user","root", "1234");
+			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/movie","root", "1234");
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -44,11 +44,12 @@ public class MovieDAO {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, movie.getDirector());
 			pstmt.setString(2, movie.getGenre());
-			pstmt.setTime(3, movie.getMtime());
+			pstmt.setString(3, movie.getMtime());
 			pstmt.setString(4, movie.getActor());
-			pstmt.setInt(5, movie.getReservation());
-			pstmt.setInt(6, movie.getBanch());
-			pstmt.setDate(7, movie.getMdate());
+			pstmt.setString(5, movie.getReservation());
+			pstmt.setString(6, movie.getBanch());
+			pstmt.setString(7, movie.getMdate());
+			
 			int rs = pstmt.executeUpdate();
 
 			if(rs>0){

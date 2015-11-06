@@ -8,10 +8,12 @@ import java.sql.Time;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
+import exam.project.DAO.MovieDAO;
 import exam.project.DAO.UserDAO;
 import exam.project.DTO.Movie;
 import exam.project.DTO.UserData;
@@ -130,11 +132,13 @@ public class AddMovieInfoDialog extends JDialog {
 
 		moviedata.setDirector(sDirector);
 		moviedata.setGenre(sGenre);
-		moviedata.setMtime(new Time(sMtime));     // <---뭘까...
+		moviedata.setMdate(sMtime);     // <---뭘까...
 		moviedata.setActor(sActor);
-		moviedata.setReservation(new Integer(sReservation));
-		moviedata.setBanch(new Integer(sBanch));
-		moviedata.setMdate(sMdate);		// <---뭘까..
+		moviedata.setReservation(sReservation);
+		moviedata.setBanch(sBanch);
+		moviedata.setMdate(sMdate);		// <---뭘까..\
+
+		return moviedata;
 
 	}
 
@@ -147,15 +151,23 @@ public class AddMovieInfoDialog extends JDialog {
 		public void actionPerformed(ActionEvent e) {
 			// TODO Auto-generated method stub
 			Object obj = e.getSource();
-			UserDAO dao = new UserDAO();
+			
+			MovieDAO dao = new MovieDAO();
 			Movie data = getMovieData();
 
 			if(obj == btnOk){
-
+				boolean ok = dao.insertMovie(data);
+				System.out.println("insertMovie() 호출 종료");
+				if(ok){
+					JOptionPane.showInputDialog(this, "입력이 완료 되었습니다.");
+				}else{
+					JOptionPane.showInputDialog(this, "입력이 정상적으로 처리되지 못했습니다.");
+				}
 			}else if(obj == btnClose){
-
+				System.exit(0);
 			}
-		}
 
+		}
 	}
+	
 }

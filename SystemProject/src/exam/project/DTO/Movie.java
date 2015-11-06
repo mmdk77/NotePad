@@ -1,17 +1,15 @@
 package exam.project.DTO;
 
-import java.sql.Date;
-import java.sql.Time;
 
 public class Movie {
 	
 	private String director;
 	private String genre;
-	private Time mtime;
+	private String mtime;
 	private String actor;
-	private int reservation;
-	private int banch;
-	private Date mdate;
+	private String reservation;
+	private String banch;
+	private String mdate;
 	
 	
 	public String getDirector() {
@@ -26,10 +24,10 @@ public class Movie {
 	public void setGenre(String genre) {
 		this.genre = genre;
 	}
-	public Time getMtime() {
+	public String getMtime() {
 		return mtime;
 	}
-	public void setMtime(Time mtime) {
+	public void setMtime(String mtime) {
 		this.mtime = mtime;
 	}
 	public String getActor() {
@@ -38,22 +36,22 @@ public class Movie {
 	public void setActor(String actor) {
 		this.actor = actor;
 	}
-	public int getReservation() {
+	public String getReservation() {
 		return reservation;
 	}
-	public void setReservation(int reservation) {
+	public void setReservation(String reservation) {
 		this.reservation = reservation;
 	}
-	public int getBanch() {
+	public String getBanch() {
 		return banch;
 	}
-	public void setBanch(int banch) {
+	public void setBanch(String banch) {
 		this.banch = banch;
 	}
-	public Date getMdate() {
+	public String getMdate() {
 		return mdate;
 	}
-	public void setMdate(Date mdate) {
+	public void setMdate(String mdate) {
 		this.mdate = mdate;
 	}
 	
