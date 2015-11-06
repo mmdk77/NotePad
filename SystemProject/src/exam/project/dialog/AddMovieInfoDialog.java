@@ -28,7 +28,7 @@ public class AddMovieInfoDialog extends JDialog {
 
 		//추가
 		super(sf,"영화정보입력",false);
-		this.setSize(300,300);
+		this.setSize(300,450);
 
 		addMoiveUI();
 		addEventListener();
@@ -130,11 +130,11 @@ public class AddMovieInfoDialog extends JDialog {
 
 		moviedata.setDirector(sDirector);
 		moviedata.setGenre(sGenre);
-		moviedata.setMtime(new Time);
+		moviedata.setMtime(sMtime);     // <---뭘까...
 		moviedata.setActor(sActor);
 		moviedata.setReservation(new Integer(sReservation));
 		moviedata.setBanch(new Integer(sBanch));
-		moviedata.setMdate(new Date(sMdate, sMdate, sMdate));
+		moviedata.setMdate(sMdate);		// <---뭘까..
 
 	}
 
@@ -148,7 +148,7 @@ public class AddMovieInfoDialog extends JDialog {
 			// TODO Auto-generated method stub
 			Object obj = e.getSource();
 			UserDAO dao = new UserDAO();
-			UserData data = getMovieData();
+			Movie data = getMovieData();
 
 			if(obj == btnOk){
 
