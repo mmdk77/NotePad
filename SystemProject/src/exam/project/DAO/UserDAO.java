@@ -107,7 +107,7 @@ public class UserDAO {
 	//·Î±×ÀÎ
 	public ArrayList<UserData> userLogin(){
 
-		String sql ="select id,pwd from userData";
+		String sql ="select * from userData";
 		ArrayList<UserData> data = new ArrayList<UserData>();
 
 		try {

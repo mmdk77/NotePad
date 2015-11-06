@@ -90,14 +90,14 @@ public class LoginDialog extends JDialog {
 				ArrayList<UserData> data = dao.userLogin();
 				for(int i = 0; i<data.size(); i++){
 					ud = data.get(i);
-					if(id.equals(ud.getId())||pwd.equals(ud.getPwd())){
+					if(id.equals(ud.getId())&&pwd.equals(ud.getPwd())){
 						LoginDialog.this.dispose();
 						System.out.println("로그인 성공");
 					}//end of if
 				}//end of for
 			}//end of if
 			else if(obj == btnClose){
-				System.exit(0);
+				LoginDialog.this.dispose();
 			}//end of else if
 
 		}//end of actionPerformed

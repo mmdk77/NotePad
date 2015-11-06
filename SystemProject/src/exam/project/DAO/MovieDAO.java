@@ -66,6 +66,11 @@ public class MovieDAO {
 		return ok;
 	}// end of insertUser
 	
+	//영화정보확인
+	public void viewMovieInfo(){
+		
+	}
+	
 
 
 }

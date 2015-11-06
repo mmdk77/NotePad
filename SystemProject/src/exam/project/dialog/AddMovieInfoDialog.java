@@ -132,11 +132,11 @@ public class AddMovieInfoDialog extends JDialog {
 
 		moviedata.setDirector(sDirector);
 		moviedata.setGenre(sGenre);
-		moviedata.setMdate(sMtime);     // <---¹»±î...
+		moviedata.setMtime(sMtime);     // <---¹»±î... ÇÊ¿äÇÑ°¡?
 		moviedata.setActor(sActor);
 		moviedata.setReservation(sReservation);
 		moviedata.setBanch(sBanch);
-		moviedata.setMdate(sMdate);		// <---¹»±î..\
+		moviedata.setMdate(sMdate);		// <---¹»±î.... ÇÊ¿äÇÑ°¡?
 
 		return moviedata;
 

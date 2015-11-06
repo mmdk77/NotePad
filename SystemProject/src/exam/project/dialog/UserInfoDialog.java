@@ -79,7 +79,6 @@ public class UserInfoDialog extends JDialog{
 					Object rows[] = {ud.getId(),ud.getPwd(),ud.getRePwd(),ud.getName(),ud.getSex()};
 					model.addRow(rows);
 				}
-		
 			}else if(obj == btnCancel){
 				System.exit(0);
 			}

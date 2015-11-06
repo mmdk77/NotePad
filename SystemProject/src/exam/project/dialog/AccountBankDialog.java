@@ -115,9 +115,11 @@ public class AccountBankDialog extends JDialog{
 			if(strCmd.equals("결제")){
 				test.setText("확인");   		// DB에서 은행정보 가져와서 비교 후 승인절차
 			} //end of if
-			else if(strCmd.equals("취소")){
-				test.setText("취소"); 		//이전단계로 돌아갈수 있도록 만들어야함
-			} //end of else if
+			if(obj == account){
+				
+			}else if(obj == cancel){
+				AccountBankDialog.this.dispose();
+			}
 		}//end of actionPerformed
 		
 	}//end of EventListener class

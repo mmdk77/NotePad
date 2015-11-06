@@ -152,7 +152,6 @@ public class JoinDialog extends JDialog{
 		public void actionPerformed(ActionEvent e) {
 			// TODO Auto-generated method stub
 			Object obj = e.getSource(); 
-
 			UserDAO dao = new UserDAO();
 			UserData data = getViewData();
 
