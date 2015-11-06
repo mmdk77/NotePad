@@ -2,6 +2,8 @@ package exam.project.dialog;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Date;
+import java.sql.Time;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
@@ -10,6 +12,9 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
+import exam.project.DAO.UserDAO;
+import exam.project.DTO.Movie;
+import exam.project.DTO.UserData;
 import exam.project.server.ServerFrame;
 
 public class AddMovieInfoDialog extends JDialog {
@@ -24,7 +29,7 @@ public class AddMovieInfoDialog extends JDialog {
 		//추가
 		super(sf,"영화정보입력",false);
 		this.setSize(300,300);
-		
+
 		addMoiveUI();
 		addEventListener();
 		this.setVisible(true);
@@ -110,7 +115,29 @@ public class AddMovieInfoDialog extends JDialog {
 		add(panel_1);
 		add(panel_2,"South");
 	}
-	
+
+	public Movie getMovieData(){
+
+		Movie moviedata = new Movie();
+
+		String sDirector = tf1.getText();
+		String sGenre = tf2.getText();
+		String sMtime = tf3.getText();
+		String sActor = tf4.getText();
+		String sReservation = tf5.getText();
+		String sBanch = tf6.getText();
+		String sMdate = tf7.getText();
+
+		moviedata.setDirector(sDirector);
+		moviedata.setGenre(sGenre);
+		moviedata.setMtime(new Time);
+		moviedata.setActor(sActor);
+		moviedata.setReservation(new Integer(sReservation));
+		moviedata.setBanch(new Integer(sBanch));
+		moviedata.setMdate(new Date(sMdate, sMdate, sMdate));
+
+	}
+
 	public void addEventListener(){
 		btnOk.addActionListener(new EventListener());
 	}
@@ -120,13 +147,15 @@ public class AddMovieInfoDialog extends JDialog {
 		public void actionPerformed(ActionEvent e) {
 			// TODO Auto-generated method stub
 			Object obj = e.getSource();
-			
+			UserDAO dao = new UserDAO();
+			UserData data = getMovieData();
+
 			if(obj == btnOk){
-				
+
 			}else if(obj == btnClose){
-				
+
 			}
 		}
-		
+
 	}
 }
