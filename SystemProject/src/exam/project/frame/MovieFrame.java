@@ -24,9 +24,8 @@ public class MovieFrame extends JFrame{
 	private JMenuItem login,join,exit;
 	private SpinnerModel model;
 	private JSpinner spinner;
-
+	
 	private Container con = getContentPane();
-
 
 	public MovieFrame(){	//영화예매화면
 

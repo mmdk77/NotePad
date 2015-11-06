@@ -1,19 +1,15 @@
 package exam.project.dialog;
 
 import java.awt.BorderLayout;
-import java.awt.List;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import java.util.Vector;
-
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-
 import exam.project.DAO.UserDAO;
 import exam.project.DTO.UserData;
 import exam.project.server.ServerFrame;

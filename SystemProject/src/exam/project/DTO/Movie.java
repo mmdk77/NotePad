@@ -1,6 +1,5 @@
 package exam.project.DTO;
 
-
 public class Movie {
 	
 	private String director;

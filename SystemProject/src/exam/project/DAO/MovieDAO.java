@@ -7,7 +7,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import exam.project.DTO.Movie;
-import exam.project.DTO.UserData;
 
 public class MovieDAO {
 

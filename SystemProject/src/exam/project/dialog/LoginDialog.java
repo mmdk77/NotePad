@@ -4,9 +4,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-
 import javax.swing.*;
-
 import exam.project.DAO.UserDAO;
 import exam.project.DTO.UserData;
 import exam.project.frame.MovieFrame;

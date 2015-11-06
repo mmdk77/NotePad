@@ -2,21 +2,14 @@ package exam.project.dialog;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.Date;
-import java.sql.Time;
-
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JPasswordField;
 import javax.swing.JTextField;
-
 import exam.project.DAO.MovieDAO;
-import exam.project.DAO.UserDAO;
 import exam.project.DTO.Movie;
-import exam.project.DTO.UserData;
 import exam.project.server.ServerFrame;
 
 public class AddMovieInfoDialog extends JDialog {
