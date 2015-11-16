@@ -65,7 +65,6 @@ public class MovieFrame extends JFrame{
 		
 		menubar.add(homeMenu);
 
-		this.setVisible(true);
 
 	}//end of createMenuBar
 

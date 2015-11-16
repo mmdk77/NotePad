@@ -76,7 +76,7 @@ public class UserInfoDialog extends JDialog{
 					model.addRow(rows);
 				}
 			}else if(obj == btnCancel){
-				System.exit(0);
+				UserInfoDialog.this.dispose();
 			}
 
 		}

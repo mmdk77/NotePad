@@ -10,7 +10,20 @@ public class Movie {
 	private String banch;
 	private String mdate;
 	
+	public Movie(String director, String genre, String mtime, String actor, String reservation,String banch,String mdate){
 	
+		this.director = director;
+		this.genre = genre;
+		this.mtime = mtime;
+		this.actor = actor;
+		this.reservation = reservation;
+		this.banch = banch;
+		this.mdate = mdate;
+		
+	}
+	public Movie(){
+		
+	}
 	public String getDirector() {
 		return director;
 	}

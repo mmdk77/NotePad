@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -17,6 +18,8 @@ import javax.swing.JTextField;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
+import exam.project.DAO.MovieDAO;
+import exam.project.DTO.Movie;
 import exam.project.frame.MovieFrame;
 import exam.project.server.ServerFrame;
 
@@ -83,28 +86,28 @@ public class MovieInfoDialog extends JDialog {
 		panel_5.add(img_1);
 		panel_6.setLayout(null);
 
-		lb_1.setBounds(30,10,30,30);
-		tf_1.setBounds(70, 15, 80, 20);
+		lb_1.setBounds(30,10,40,30);
+		tf_1.setBounds(70, 15, 100, 20);
 		panel_6.add(lb_1);
 		panel_6.add(tf_1);
 
-		lb_2.setBounds(30,40,30,30);
-		tf_2.setBounds(70,45,80,20);
+		lb_2.setBounds(30,40,40,30);
+		tf_2.setBounds(70,45,100,20);
 		panel_6.add(lb_2);
 		panel_6.add(tf_2);
 
-		lb_3.setBounds(30,70,30,30);
-		tf_3.setBounds(70,75,80,20);
+		lb_3.setBounds(30,70,40,30);
+		tf_3.setBounds(70,75,100,20);
 		panel_6.add(lb_3);
 		panel_6.add(tf_3);
 
-		lb_4.setBounds(30,110,55,30);
-		tf_4.setBounds(95,115,80,20);
+		lb_4.setBounds(30,110,65,30);
+		tf_4.setBounds(95,115,100,20);
 		panel_6.add(lb_4);
 		panel_6.add(tf_4);
 
-		lb_5.setBounds(30,150,55,30);
-		tf_5.setBounds(95,155,80,20);
+		lb_5.setBounds(30,150,65,30);
+		tf_5.setBounds(95,155,100,20);
 		panel_6.add(lb_5);
 		panel_6.add(tf_5);
 
@@ -135,20 +138,29 @@ public class MovieInfoDialog extends JDialog {
 		@Override
 		public void valueChanged(ListSelectionEvent e) {
 			// TODO Auto-generated method stub
+			
+			MovieDAO dao = new MovieDAO();
+			Movie mo = new Movie();
+			ArrayList<Movie> data = dao.viewMovieInfo();
+			
 			if(movieList.getSelectedValue() == "사도"){
-				img_1.setText("");
-				ta.setText("영화정보1");
+				img_1 = new JButton(new ImageIcon("사도.png"));
+				tf_1.setText("이준익");
+				tf_2.setText("송강호/유아인/문근영/전혜진/김해숙");
+				tf_3.setText("드라마");
+				tf_4.setText("");
+				tf_5.setText("");
 			}else if(movieList.getSelectedValue() == "베테랑"){
-				img_1.setText("icon");
+				img_1 = new JButton(new ImageIcon("베테랑.png"));
 				ta.setText("영화정보2");
 			}else if(movieList.getSelectedValue() == "메이즈러너"){
-				img_1.setText("icon");
+				img_1 = new JButton(new ImageIcon("메이즈러너.png"));
 				ta.setText("영화정보3");
 			}else if(movieList.getSelectedValue() == "탐정"){
-				img_1.setText("icon");
+				img_1 = new JButton(new ImageIcon("탐정.png"));
 				ta.setText("영화정보4");
 			}else if(movieList.getSelectedValue() == "암살"){
-				img_1.setText("icon");
+				img_1 = new JButton(new ImageIcon("암살"));
 				ta.setText("영화정보5");
 			}
 		}
