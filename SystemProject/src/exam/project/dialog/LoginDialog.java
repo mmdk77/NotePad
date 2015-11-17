@@ -19,6 +19,9 @@ public class LoginDialog extends JDialog {
 	private JTextField idInput;
 	private JPasswordField pwdInput;
 	private Container con = getContentPane();
+	
+	private static int loginS = 0;
+
 
 
 	public LoginDialog(MovieFrame mf){
@@ -82,14 +85,20 @@ public class LoginDialog extends JDialog {
 			UserData ud = new UserData();
 			UserDAO dao = new UserDAO();
 
-			if(obj == btnLogin){
+			if(obj == btnLogin){ //로그인.....문제를 모르겠다..
 				ArrayList<UserData> data = dao.userLogin();
 				for(int i = 0; i<data.size(); i++){
 					ud = data.get(i);
-					if(id.equals(ud.getId())&&pwd.equals(ud.getPwd())){
-						LoginDialog.this.dispose();
+					if((idInput.equals(ud.getId()))&&(pwdInput.equals(ud.getPwd()))){
+						JOptionPane.showInputDialog(this, "로그인 되었습니다.");
 						System.out.println("로그인 성공");
+						LoginDialog.this.dispose();
+						loginS = 1;
 					}//end of if
+					else if((!id.equals(ud.getId()))&&(pwd.equals(ud.getPwd()))){
+						JOptionPane.showInputDialog(this, "로그인에 실패했습니다.");
+						loginS = 0;
+					}
 				}//end of for
 			}//end of if
 			else if(obj == btnClose){

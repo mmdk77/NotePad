@@ -146,12 +146,10 @@ public class MovieFrame extends JFrame{
 			}else if(obj == cancel || obj == exit){
 				System.exit(0);
 			}else if(obj == ago){
-				
-				panel_2.removeAll();
-				panel_2.add(movie_2);
-				movie_2.updateUI();
+				//버튼 image 바꿔야함
+			}else if(obj == next){
+				//버튼 image 바꿔야함
 			}
-	
 
 		}//end of actionPerformed
 

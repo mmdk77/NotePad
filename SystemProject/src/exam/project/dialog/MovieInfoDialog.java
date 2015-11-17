@@ -34,7 +34,8 @@ public class MovieInfoDialog extends JDialog {
 	private JLabel lb_1,lb_2,lb_3,lb_4,lb_5;
 	private JTextField tf_1,tf_2,tf_3,tf_4,tf_5;
 	private JButton img_1,img_2,img_3,img_4,img_5;
-
+	
+	
 
 	public MovieInfoDialog(ServerFrame sf){
 
@@ -133,7 +134,6 @@ public class MovieInfoDialog extends JDialog {
 
 		add(panel_1,BorderLayout.WEST);
 		add(panel_4);
-
 
 	}
 
