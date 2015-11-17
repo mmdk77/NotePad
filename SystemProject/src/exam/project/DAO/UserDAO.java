@@ -19,7 +19,7 @@ public class UserDAO {
 
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/user","root", "1234");
+			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/MovieReservation","root", "1234");
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -32,7 +32,7 @@ public class UserDAO {
 	//회원등록
 	public boolean insertUser(UserData user){
 
-		String sql = "insert into userData values(?,?,?,?,?)";
+		String sql = "insert into userdata values(?,?,?,?,?)";
 
 		boolean ok = false;
 
@@ -64,7 +64,7 @@ public class UserDAO {
 	//회원정보
 	public ArrayList<UserData> getUserList(){
 
-		String sql ="select * from userData order by name asc";
+		String sql ="select * from userdata order by name asc";
 		ArrayList<UserData> data = new ArrayList<UserData>();
 
 		try {
@@ -76,7 +76,7 @@ public class UserDAO {
 				String sPwd = rs.getString("pwd");
 				String sRePwd = rs.getString("rePwd");
 				String sName = rs.getString("name");
-				String sSex = rs.getString("sex");
+				String sSex = rs.getString("gender");
 
 				UserData ud = new UserData(sId, sPwd, sRePwd, sName, sSex);
 
@@ -105,7 +105,7 @@ public class UserDAO {
 	//로그인
 	public ArrayList<UserData> userLogin(){
 
-		String sql ="select * from userData";
+		String sql ="select * from userdata";
 		ArrayList<UserData> data = new ArrayList<UserData>();
 
 		try {

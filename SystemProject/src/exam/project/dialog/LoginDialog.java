@@ -64,14 +64,12 @@ public class LoginDialog extends JDialog {
 		con.add(panel_2,"Center");
 		con.add(panel_3,"South");	
 
-
 	}//end of loginUi
 
 	public void addEventListener(){	
 
 		btnClose.addActionListener(new EventListener());
 		btnLogin.addActionListener(new EventListener());
-
 
 	}//end of eventListener
 

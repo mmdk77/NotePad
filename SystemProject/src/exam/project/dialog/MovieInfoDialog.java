@@ -17,9 +17,11 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
+import javax.swing.table.DefaultTableModel;
 
 import exam.project.DAO.MovieDAO;
 import exam.project.DTO.Movie;
+import exam.project.DTO.UserData;
 import exam.project.frame.MovieFrame;
 import exam.project.server.ServerFrame;
 
@@ -31,7 +33,8 @@ public class MovieInfoDialog extends JDialog {
 	private JPanel panel_1,panel_2,panel_3,panel_4,panel_5,panel_6;
 	private JLabel lb_1,lb_2,lb_3,lb_4,lb_5;
 	private JTextField tf_1,tf_2,tf_3,tf_4,tf_5;
-	private JButton img_1;
+	private JButton img_1,img_2,img_3,img_4,img_5;
+
 
 	public MovieInfoDialog(ServerFrame sf){
 
@@ -61,6 +64,11 @@ public class MovieInfoDialog extends JDialog {
 		sp = new JScrollPane(movieList);
 
 		img_1 = new JButton(new ImageIcon("사도.png"));
+		img_2 = new JButton(new ImageIcon("베테랑.png"));
+		img_3 = new JButton(new ImageIcon("메이즈러너.png"));
+		img_4 = new JButton(new ImageIcon("탐정.png"));
+		img_5 = new JButton(new ImageIcon("암살.png"));
+
 		panel_1 = new JPanel();
 		panel_1.add(sp);
 
@@ -135,33 +143,110 @@ public class MovieInfoDialog extends JDialog {
 
 	class EventListener implements ListSelectionListener,ActionListener{
 
+		MovieDAO dao = new MovieDAO();
+		Movie mo = new Movie();
+		ArrayList<Movie> data = dao.viewMovieInfo();
+
 		@Override
 		public void valueChanged(ListSelectionEvent e) {
 			// TODO Auto-generated method stub
-			
-			MovieDAO dao = new MovieDAO();
-			Movie mo = new Movie();
-			ArrayList<Movie> data = dao.viewMovieInfo();
-			
+
+
 			if(movieList.getSelectedValue() == "사도"){
-				img_1 = new JButton(new ImageIcon("사도.png"));
-				tf_1.setText("이준익");
-				tf_2.setText("송강호/유아인/문근영/전혜진/김해숙");
-				tf_3.setText("드라마");
-				tf_4.setText("");
-				tf_5.setText("");
+				panel_5.removeAll();
+				panel_5.add(img_1);
+				img_1.updateUI();
+
+				for(int i = 0; i<data.size(); i++){
+					mo = data.get(i);
+					String director = mo.getDirector();
+					String actor = mo.getActor();
+					String genre = mo.getGenre();
+					String mtime = mo.getMtime();
+					String mdate = mo.getMdate();
+					
+					tf_1.setText(director);
+					tf_2.setText(actor);
+					tf_3.setText(genre);
+					tf_4.setText(mtime);
+					tf_5.setText(mdate);
+				}
 			}else if(movieList.getSelectedValue() == "베테랑"){
-				img_1 = new JButton(new ImageIcon("베테랑.png"));
-				ta.setText("영화정보2");
+				panel_5.removeAll();
+				panel_5.add(img_2);
+				img_2.updateUI();
+				
+				for(int i = 0; i<data.size(); i++){
+					mo = data.get(i);
+					String director = mo.getDirector();
+					String actor = mo.getActor();
+					String genre = mo.getGenre();
+					String mtime = mo.getMtime();
+					String mdate = mo.getMdate();
+
+					tf_1.setText(director);
+					tf_2.setText(actor);
+					tf_3.setText(genre);
+					tf_4.setText(mtime);
+					tf_5.setText(mdate);
+				}
 			}else if(movieList.getSelectedValue() == "메이즈러너"){
-				img_1 = new JButton(new ImageIcon("메이즈러너.png"));
-				ta.setText("영화정보3");
+				panel_5.removeAll();
+				panel_5.add(img_3);
+				img_3.updateUI();
+				
+				for(int i = 0; i<data.size(); i++){
+					mo = data.get(i);
+					String director = mo.getDirector();
+					String actor = mo.getActor();
+					String genre = mo.getGenre();
+					String mtime = mo.getMtime();
+					String mdate = mo.getMdate();
+
+					tf_1.setText(director);
+					tf_2.setText(actor);
+					tf_3.setText(genre);
+					tf_4.setText(mtime);
+					tf_5.setText(mdate);
+				}
 			}else if(movieList.getSelectedValue() == "탐정"){
-				img_1 = new JButton(new ImageIcon("탐정.png"));
-				ta.setText("영화정보4");
+				panel_5.removeAll();
+				panel_5.add(img_4);
+				img_4.updateUI();
+				
+				for(int i = 0; i<data.size(); i++){
+					mo = data.get(i);
+					String director = mo.getDirector();
+					String actor = mo.getActor();
+					String genre = mo.getGenre();
+					String mtime = mo.getMtime();
+					String mdate = mo.getMdate();
+
+					tf_1.setText(director);
+					tf_2.setText(actor);
+					tf_3.setText(genre);
+					tf_4.setText(mtime);
+					tf_5.setText(mdate);
+				}
 			}else if(movieList.getSelectedValue() == "암살"){
-				img_1 = new JButton(new ImageIcon("암살"));
-				ta.setText("영화정보5");
+				panel_5.removeAll();
+				panel_5.add(img_5);
+				img_5.updateUI();
+				
+				for(int i = 0; i<data.size(); i++){
+					mo = data.get(i);
+					String director = mo.getDirector();
+					String actor = mo.getActor();
+					String genre = mo.getGenre();
+					String mtime = mo.getMtime();
+					String mdate = mo.getMdate();
+
+					tf_1.setText(director);
+					tf_2.setText(actor);
+					tf_3.setText(genre);
+					tf_4.setText(mtime);
+					tf_5.setText(mdate);
+				}
 			}
 		}
 

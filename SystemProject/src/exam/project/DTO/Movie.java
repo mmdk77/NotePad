@@ -6,17 +6,17 @@ public class Movie {
 	private String genre;
 	private String mtime;
 	private String actor;
-	private String reservation;
+	private String movieName;
 	private String banch;
 	private String mdate;
 	
-	public Movie(String director, String genre, String mtime, String actor, String reservation,String banch,String mdate){
+	public Movie(String director, String genre, String mtime, String actor, String movieName,String banch,String mdate){
 	
 		this.director = director;
 		this.genre = genre;
 		this.mtime = mtime;
 		this.actor = actor;
-		this.reservation = reservation;
+		this.movieName = movieName;
 		this.banch = banch;
 		this.mdate = mdate;
 		
@@ -48,12 +48,6 @@ public class Movie {
 	public void setActor(String actor) {
 		this.actor = actor;
 	}
-	public String getReservation() {
-		return reservation;
-	}
-	public void setReservation(String reservation) {
-		this.reservation = reservation;
-	}
 	public String getBanch() {
 		return banch;
 	}
@@ -65,6 +59,14 @@ public class Movie {
 	}
 	public void setMdate(String mdate) {
 		this.mdate = mdate;
+	}
+	public void setMovieName(String sMovieName) {
+		// TODO Auto-generated method stub
+		this.movieName = sMovieName;
+	}
+	public String getMovieName(){
+		return movieName;
+		
 	}
 	
 }

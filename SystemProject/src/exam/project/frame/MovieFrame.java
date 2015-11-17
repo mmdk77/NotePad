@@ -18,7 +18,7 @@ public class MovieFrame extends JFrame{
 
 	private JPanel panel_1,panel_2,panel_3;
 	private JLabel lb1;
-	private JButton movie,ago,next,reservetion,cancel;
+	private JButton movie_1,movie_2,movie_3,movie_4,movie_5,ago,next,reservetion,cancel;
 	private JMenuBar menubar;
 	private JMenu homeMenu;
 	private JMenuItem login,join,exit;
@@ -73,8 +73,13 @@ public class MovieFrame extends JFrame{
 
 		panel_2 = new JPanel();
 		con.add(panel_2);
-		movie = new JButton(new ImageIcon("123.jpg")); //영화 포스터 사진
-		panel_2.add(movie);
+		movie_1 = new JButton(new ImageIcon("사도.png")); //영화 포스터 사진
+		movie_2 = new JButton(new ImageIcon("베테랑.png"));
+		movie_3 = new JButton(new ImageIcon("메이즈러너.png"));
+		movie_4 = new JButton(new ImageIcon("탐정.png"));
+		movie_5 = new JButton(new ImageIcon("암살.png"));
+		
+		panel_2.add(movie_1);
 		
 		panel_1 = new JPanel();
 		con.add(panel_1);
@@ -114,7 +119,7 @@ public class MovieFrame extends JFrame{
 		
 		//화면 버튼 이벤트
 		reservetion.addActionListener(new EventListener());
-		movie.addActionListener(new EventListener());
+		movie_1.addActionListener(new EventListener());
 		
 		
 		//종료
@@ -132,18 +137,19 @@ public class MovieFrame extends JFrame{
 
 			if(obj == login){
 				LoginDialog login = new LoginDialog(MovieFrame.this);
-			}
-			else if(obj == reservetion){
+			}else if(obj == reservetion){
 				AccountBankDialog bank = new AccountBankDialog(MovieFrame.this);
-			}
-			else if(obj == movie){
+			}else if(obj == movie_1){
 				MovieInfoDialog mid = new MovieInfoDialog(MovieFrame.this);
-			}
-			else if(obj == join){
+			}else if(obj == join){
 				JoinDialog join = new JoinDialog(MovieFrame.this);
-			}
-			else if(obj == cancel || obj == exit){
+			}else if(obj == cancel || obj == exit){
 				System.exit(0);
+			}else if(obj == ago){
+				
+				panel_2.removeAll();
+				panel_2.add(movie_2);
+				movie_2.updateUI();
 			}
 	
 
@@ -152,12 +158,8 @@ public class MovieFrame extends JFrame{
 		@Override
 		public void valueChanged(ListSelectionEvent e) {
 			// TODO Auto-generated method stub
-			if(ago.getSelectedIcon() == null){
-				
-			}
+
 		}
-
-
 	}//end of EventActionClass
 
 }//end of class

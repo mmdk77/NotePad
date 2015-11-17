@@ -34,25 +34,25 @@ public class AddMovieInfoDialog extends JDialog {
 		panel_1 = new JPanel();
 		panel_2 = new JPanel();
 
-		label_1 = new JLabel(" 감독 : ");
+		label_1 = new JLabel(" 영화 : ");	//영화이름
 		tf1 = new JTextField();
 
-		label_2 = new JLabel(" 장르 : ");
+		label_2 = new JLabel(" 감독 : ");	//감독
 		tf2 = new JTextField();
 
-		label_3 = new JLabel(" 영화시간 : ");
+		label_3 = new JLabel(" 장르 : "); //장르
 		tf3 = new JTextField();
 
-		label_4 = new JLabel(" 배우 : ");
+		label_4 = new JLabel(" 영화시간 : ");	//영화시간
 		tf4 = new JTextField();
 
-		label_5 = new JLabel(" 예약 : ");
+		label_5 = new JLabel(" 배우 : ");	//배우
 		tf5 = new JTextField();
 
-		label_6 = new JLabel(" 좌석 : ");
+		label_6 = new JLabel(" 좌석 : ");	//좌석
 		tf6 = new JTextField();
 
-		label_7 = new JLabel(" 날짜 : ");
+		label_7 = new JLabel(" 개봉 : ");	//개봉 날짜
 		tf7 = new JTextField();
 
 		btnOk = new JButton("확인");
@@ -115,19 +115,19 @@ public class AddMovieInfoDialog extends JDialog {
 
 		Movie moviedata = new Movie();
 
-		String sDirector = tf1.getText();
-		String sGenre = tf2.getText();
-		String sMtime = tf3.getText();
-		String sActor = tf4.getText();
-		String sReservation = tf5.getText();
+		String sMovieName = tf1.getText();
+		String sDirector = tf2.getText();
+		String sGenre = tf3.getText();
+		String sMtime = tf4.getText();
+		String sActor = tf5.getText();
 		String sBanch = tf6.getText();
 		String sMdate = tf7.getText();
-
+		
+		moviedata.setMovieName(sMovieName);
 		moviedata.setDirector(sDirector);
 		moviedata.setGenre(sGenre);
 		moviedata.setMtime(sMtime);     // <---뭘까... 필요한가?
 		moviedata.setActor(sActor);
-		moviedata.setReservation(sReservation);
 		moviedata.setBanch(sBanch);
 		moviedata.setMdate(sMdate);		// <---뭘까.... 필요한가?
 
@@ -157,7 +157,7 @@ public class AddMovieInfoDialog extends JDialog {
 					JOptionPane.showInputDialog(this, "입력이 정상적으로 처리되지 못했습니다.");
 				}
 			}else if(obj == btnClose){
-				System.exit(0);
+				AddMovieInfoDialog.this.dispose();
 			}
 
 		}
