@@ -80,18 +80,18 @@ public class LoginDialog extends JDialog {
 		public void actionPerformed(ActionEvent e) {
 			// TODO Auto-generated method stub
 			Object obj = e.getSource();
-
-
-
-			if(obj == btnLogin){ //로그인.....문제를 모르겠다..
+			
+			if(obj == btnLogin){
 				char[] strPwd = pwdInput.getPassword();
 				String pwd = null;
 				pwd = String.copyValueOf(strPwd);
-				
 				System.out.println("Id,Pwd:"+idInput.getText()+","+pwd);
+				
 				if(dao.userLogin(idInput.getText(), pwd)){
-					JOptionPane.showMessageDialog(null, "Success Login");
+					JOptionPane.showMessageDialog(null, idInput.getText()+"님 환영합니다.");
 					LoginDialog.this.dispose();
+				}else if(!dao.userLogin(idInput.getText(), pwd)){
+					JOptionPane.showMessageDialog(null, "아이디/패스워드가 잘못되었습니다.");
 				}
 			}//end of if
 			else if(obj == btnClose){

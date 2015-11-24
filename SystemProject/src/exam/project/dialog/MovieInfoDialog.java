@@ -60,7 +60,7 @@ public class MovieInfoDialog extends JDialog {
 
 	public void movieInfoUi(){
 
-		String [] movieName = {"사도","베테랑","메이즈러너","탐정","암살"};
+		String[] movieName = {"사도","베테랑","메이즈러너","탐정","암살"};
 		movieList = new JList<String>(movieName);
 		sp = new JScrollPane(movieList);
 
@@ -141,7 +141,7 @@ public class MovieInfoDialog extends JDialog {
 		movieList.addListSelectionListener(new EventListener());
 	}
 
-	class EventListener implements ListSelectionListener,ActionListener{
+	class EventListener implements ListSelectionListener{
 
 		MovieDAO dao = new MovieDAO();
 		Movie mo = new Movie();
@@ -150,15 +150,15 @@ public class MovieInfoDialog extends JDialog {
 		@Override
 		public void valueChanged(ListSelectionEvent e) {
 			// TODO Auto-generated method stub
-			for(int i = 0; i<data.size(); i++){
-				mo = data.get(i);
-				String director = mo.getDirector();
-				String actor = mo.getActor();
-				String genre = mo.getGenre();
-				String mtime = mo.getMtime();
-				String mdate = mo.getMdate();
 
-				if(movieList.getSelectedValue() == "사도"){
+			if(movieList.getSelectedValue() == "사도"){
+				for(int i = 0; i<data.size(); i++){
+					mo = data.get(0);
+					String director = mo.getDirector();
+					String actor = mo.getActor();
+					String genre = mo.getGenre();
+					String mtime = mo.getMtime();
+					String mdate = mo.getMdate();
 					panel_5.removeAll();
 					panel_5.add(img_1);
 					img_1.updateUI();
@@ -168,8 +168,15 @@ public class MovieInfoDialog extends JDialog {
 					tf_3.setText(genre);
 					tf_4.setText(mtime);
 					tf_5.setText(mdate);
-
-				}else if(movieList.getSelectedValue() == "베테랑"&&movieList.getSelectedValue() == mo.getMovieName()){
+				}
+			}else if(movieList.getSelectedValue() == "베테랑"){
+				for(int i = 0; i<data.size(); i++){
+					mo = data.get(1);
+					String director = mo.getDirector();
+					String actor = mo.getActor();
+					String genre = mo.getGenre();
+					String mtime = mo.getMtime();
+					String mdate = mo.getMdate();
 					panel_5.removeAll();
 					panel_5.add(img_2);
 					img_2.updateUI();
@@ -179,8 +186,15 @@ public class MovieInfoDialog extends JDialog {
 					tf_3.setText(genre);
 					tf_4.setText(mtime);
 					tf_5.setText(mdate);
-
-				}else if(movieList.getSelectedValue() == "메이즈러너"&&movieList.getSelectedValue() == mo.getMovieName()){
+				}
+			}else if(movieList.getSelectedValue() == "메이즈러너"){
+				for(int i = 0; i<data.size(); i++){
+					mo = data.get(2);
+					String director = mo.getDirector();
+					String actor = mo.getActor();
+					String genre = mo.getGenre();
+					String mtime = mo.getMtime();
+					String mdate = mo.getMdate();
 					panel_5.removeAll();
 					panel_5.add(img_3);
 					img_3.updateUI();
@@ -190,8 +204,15 @@ public class MovieInfoDialog extends JDialog {
 					tf_3.setText(genre);
 					tf_4.setText(mtime);
 					tf_5.setText(mdate);
-
-				}else if(movieList.getSelectedValue() == "탐정" && movieList.getSelectedValue() == mo.getMovieName()){
+				}
+			}else if(movieList.getSelectedValue() == "탐정"){
+				for(int i = 0; i<data.size(); i++){
+					mo = data.get(3);
+					String director = mo.getDirector();
+					String actor = mo.getActor();
+					String genre = mo.getGenre();
+					String mtime = mo.getMtime();
+					String mdate = mo.getMdate();
 					panel_5.removeAll();
 					panel_5.add(img_4);
 					img_4.updateUI();
@@ -201,7 +222,15 @@ public class MovieInfoDialog extends JDialog {
 					tf_3.setText(genre);
 					tf_4.setText(mtime);
 					tf_5.setText(mdate);
-				}else if(movieList.getSelectedValue() == "암살" && movieList.getSelectedValue() == mo.getMovieName()){
+				}
+			}else if(movieList.getSelectedValue() == "암살"){
+				for(int i = 0; i<data.size(); i++){
+					mo = data.get(4);
+					String director = mo.getDirector();
+					String actor = mo.getActor();
+					String genre = mo.getGenre();
+					String mtime = mo.getMtime();
+					String mdate = mo.getMdate();
 					panel_5.removeAll();
 					panel_5.add(img_5);
 					img_5.updateUI();
@@ -212,16 +241,7 @@ public class MovieInfoDialog extends JDialog {
 					tf_4.setText(mtime);
 					tf_5.setText(mdate);
 				}
-			}
-		}
-
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			// TODO Auto-generated method stub
-
-		}
-
-	}
-
-
-}
+			}//end of else if
+		}//end of valueChanged
+	}//end of inner Class
+}//end of Class
