@@ -34,8 +34,8 @@ public class MovieInfoDialog extends JDialog {
 	private JLabel lb_1,lb_2,lb_3,lb_4,lb_5;
 	private JTextField tf_1,tf_2,tf_3,tf_4,tf_5;
 	private JButton img_1,img_2,img_3,img_4,img_5;
-	
-	
+
+
 
 	public MovieInfoDialog(ServerFrame sf){
 
@@ -150,96 +150,61 @@ public class MovieInfoDialog extends JDialog {
 		@Override
 		public void valueChanged(ListSelectionEvent e) {
 			// TODO Auto-generated method stub
+			for(int i = 0; i<data.size(); i++){
+				mo = data.get(i);
+				String director = mo.getDirector();
+				String actor = mo.getActor();
+				String genre = mo.getGenre();
+				String mtime = mo.getMtime();
+				String mdate = mo.getMdate();
 
-
-			if(movieList.getSelectedValue() == "사도"){
-				panel_5.removeAll();
-				panel_5.add(img_1);
-				img_1.updateUI();
-
-				for(int i = 0; i<data.size(); i++){
-					mo = data.get(i);
-					String director = mo.getDirector();
-					String actor = mo.getActor();
-					String genre = mo.getGenre();
-					String mtime = mo.getMtime();
-					String mdate = mo.getMdate();
-					
-					tf_1.setText(director);
-					tf_2.setText(actor);
-					tf_3.setText(genre);
-					tf_4.setText(mtime);
-					tf_5.setText(mdate);
-				}
-			}else if(movieList.getSelectedValue() == "베테랑"){
-				panel_5.removeAll();
-				panel_5.add(img_2);
-				img_2.updateUI();
-				
-				for(int i = 0; i<data.size(); i++){
-					mo = data.get(i);
-					String director = mo.getDirector();
-					String actor = mo.getActor();
-					String genre = mo.getGenre();
-					String mtime = mo.getMtime();
-					String mdate = mo.getMdate();
+				if(movieList.getSelectedValue() == "사도"){
+					panel_5.removeAll();
+					panel_5.add(img_1);
+					img_1.updateUI();
 
 					tf_1.setText(director);
 					tf_2.setText(actor);
 					tf_3.setText(genre);
 					tf_4.setText(mtime);
 					tf_5.setText(mdate);
-				}
-			}else if(movieList.getSelectedValue() == "메이즈러너"){
-				panel_5.removeAll();
-				panel_5.add(img_3);
-				img_3.updateUI();
-				
-				for(int i = 0; i<data.size(); i++){
-					mo = data.get(i);
-					String director = mo.getDirector();
-					String actor = mo.getActor();
-					String genre = mo.getGenre();
-					String mtime = mo.getMtime();
-					String mdate = mo.getMdate();
+
+				}else if(movieList.getSelectedValue() == "베테랑"&&movieList.getSelectedValue() == mo.getMovieName()){
+					panel_5.removeAll();
+					panel_5.add(img_2);
+					img_2.updateUI();
 
 					tf_1.setText(director);
 					tf_2.setText(actor);
 					tf_3.setText(genre);
 					tf_4.setText(mtime);
 					tf_5.setText(mdate);
-				}
-			}else if(movieList.getSelectedValue() == "탐정"){
-				panel_5.removeAll();
-				panel_5.add(img_4);
-				img_4.updateUI();
-				
-				for(int i = 0; i<data.size(); i++){
-					mo = data.get(i);
-					String director = mo.getDirector();
-					String actor = mo.getActor();
-					String genre = mo.getGenre();
-					String mtime = mo.getMtime();
-					String mdate = mo.getMdate();
+
+				}else if(movieList.getSelectedValue() == "메이즈러너"&&movieList.getSelectedValue() == mo.getMovieName()){
+					panel_5.removeAll();
+					panel_5.add(img_3);
+					img_3.updateUI();
 
 					tf_1.setText(director);
 					tf_2.setText(actor);
 					tf_3.setText(genre);
 					tf_4.setText(mtime);
 					tf_5.setText(mdate);
-				}
-			}else if(movieList.getSelectedValue() == "암살"){
-				panel_5.removeAll();
-				panel_5.add(img_5);
-				img_5.updateUI();
-				
-				for(int i = 0; i<data.size(); i++){
-					mo = data.get(i);
-					String director = mo.getDirector();
-					String actor = mo.getActor();
-					String genre = mo.getGenre();
-					String mtime = mo.getMtime();
-					String mdate = mo.getMdate();
+
+				}else if(movieList.getSelectedValue() == "탐정" && movieList.getSelectedValue() == mo.getMovieName()){
+					panel_5.removeAll();
+					panel_5.add(img_4);
+					img_4.updateUI();
+
+					tf_1.setText(director);
+					tf_2.setText(actor);
+					tf_3.setText(genre);
+					tf_4.setText(mtime);
+					tf_5.setText(mdate);
+				}else if(movieList.getSelectedValue() == "암살" && movieList.getSelectedValue() == mo.getMovieName()){
+					panel_5.removeAll();
+					panel_5.add(img_5);
+					img_5.updateUI();
 
 					tf_1.setText(director);
 					tf_2.setText(actor);

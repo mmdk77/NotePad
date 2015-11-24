@@ -19,10 +19,6 @@ public class LoginDialog extends JDialog {
 	private JTextField idInput;
 	private JPasswordField pwdInput;
 	private Container con = getContentPane();
-	
-	private static int loginS = 0;
-
-
 
 	public LoginDialog(MovieFrame mf){
 
@@ -77,29 +73,26 @@ public class LoginDialog extends JDialog {
 	}//end of eventListener
 
 	class EventListener implements ActionListener{
+		UserData ud = new UserData();
+		UserDAO dao = new UserDAO();
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			// TODO Auto-generated method stub
 			Object obj = e.getSource();
-			UserData ud = new UserData();
-			UserDAO dao = new UserDAO();
+
+
 
 			if(obj == btnLogin){ //로그인.....문제를 모르겠다..
-				ArrayList<UserData> data = dao.userLogin();
-				for(int i = 0; i<data.size(); i++){
-					ud = data.get(i);
-					if((idInput.equals(ud.getId()))&&(pwdInput.equals(ud.getPwd()))){
-						JOptionPane.showInputDialog(this, "로그인 되었습니다.");
-						System.out.println("로그인 성공");
-						LoginDialog.this.dispose();
-						loginS = 1;
-					}//end of if
-					else if((!id.equals(ud.getId()))&&(pwd.equals(ud.getPwd()))){
-						JOptionPane.showInputDialog(this, "로그인에 실패했습니다.");
-						loginS = 0;
-					}
-				}//end of for
+				char[] strPwd = pwdInput.getPassword();
+				String pwd = null;
+				pwd = String.copyValueOf(strPwd);
+				
+				System.out.println("Id,Pwd:"+idInput.getText()+","+pwd);
+				if(dao.userLogin(idInput.getText(), pwd)){
+					JOptionPane.showMessageDialog(null, "Success Login");
+					LoginDialog.this.dispose();
+				}
 			}//end of if
 			else if(obj == btnClose){
 				LoginDialog.this.dispose();

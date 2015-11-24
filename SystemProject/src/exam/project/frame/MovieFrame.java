@@ -149,6 +149,7 @@ public class MovieFrame extends JFrame{
 				//버튼 image 바꿔야함
 			}else if(obj == next){
 				//버튼 image 바꿔야함
+				panel_2.removeAll();
 			}
 
 		}//end of actionPerformed

@@ -158,7 +158,7 @@ public class JoinDialog extends JDialog{
 					JOptionPane.showInputDialog(this, "가입이 정상적으로 처리되지 못했습니다.");
 				}
 			}else if(obj == cancel){
-				System.exit(0);
+				JoinDialog.this.dispose();
 			}
 		}
 

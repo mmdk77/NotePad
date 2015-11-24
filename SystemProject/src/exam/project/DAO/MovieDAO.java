@@ -22,7 +22,7 @@ public class MovieDAO {
 	public MovieDAO(){
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/MovieReservation","root", "1234");
+			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/MovieReservation","root", "dytc1234");
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -43,13 +43,14 @@ public class MovieDAO {
 
 		try {
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, movie.getMovieName());
-			pstmt.setString(2, movie.getDirector());
+			
+			pstmt.setString(1, movie.getDirector());
+			pstmt.setString(2, movie.getActor());
 			pstmt.setString(3, movie.getGenre());
 			pstmt.setString(4, movie.getMtime());
-			pstmt.setString(5, movie.getActor());
+			pstmt.setString(5, movie.getMdate());
 			pstmt.setString(6, movie.getBanch());
-			pstmt.setString(7, movie.getMdate());
+			pstmt.setString(7, movie.getMovieName());
 			
 			int rs = pstmt.executeUpdate();
 
@@ -76,15 +77,13 @@ public class MovieDAO {
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			while(rs.next()){
-				String sMovieName = rs.getString("movieName");
 				String sDirector = rs.getString("director");
+				String sActor = rs.getString("actor");
 				String sGenre = rs.getString("genre");
 				String sMtime = rs.getString("mtime");
-				String sActor = rs.getString("actor");
-				String sBanch = rs.getString("banch");
 				String sMdate = rs.getString("mdate");
 				
-				Movie mo = new Movie(sMovieName,sDirector, sGenre, sMtime, sActor, sBanch, sMdate);
+				Movie mo = new Movie(sDirector,sActor, sGenre, sMtime, sMdate);
 				data.add(mo);
 			}
 		} catch (SQLException e) {

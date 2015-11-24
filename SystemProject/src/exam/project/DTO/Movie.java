@@ -10,14 +10,12 @@ public class Movie {
 	private String banch;
 	private String mdate;
 	
-	public Movie(String director, String genre, String mtime, String actor, String movieName,String banch,String mdate){
+	public Movie(String director,String actor, String genre, String mtime, String mdate){
 	
 		this.director = director;
+		this.actor = actor;
 		this.genre = genre;
 		this.mtime = mtime;
-		this.actor = actor;
-		this.movieName = movieName;
-		this.banch = banch;
 		this.mdate = mdate;
 		
 	}

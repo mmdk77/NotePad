@@ -18,13 +18,15 @@ select * from userData
 select * from movie
 
 show databases
+drop table movie;
 
 create table movie(
-movieName	varchar(100),
+
 director	varchar(100),
+actor		varchar(100),
 genre		varchar(100),
 mtime		varchar(100),
-actor		varchar(100),
+mdate		varchar(100),
 banch		varchar(100),
-mdate		varchar(100)
+movieName	varchar(100)
 )

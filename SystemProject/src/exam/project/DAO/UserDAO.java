@@ -19,7 +19,7 @@ public class UserDAO {
 
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/MovieReservation","root", "1234");
+			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/moviereservation","root", "dytc1234");
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -103,20 +103,21 @@ public class UserDAO {
 	}//end of getUserList()
 
 	//·Î±×ÀÎ
-	public ArrayList<UserData> userLogin(){
+	public Boolean userLogin(String id, String pwd){
 
-		String sql ="select * from userdata";
+		String sql ="select * from userdata where id=? and pwd =?";
 		ArrayList<UserData> data = new ArrayList<UserData>();
 
 		try {
 			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			pstmt.setString(2, pwd);
 			rs = pstmt.executeQuery();
 
 			if(rs.next()){
-				String sId = rs.getString("id");
-				String sPwd = rs.getString("pwd");
-				UserData ud = new UserData(sId, sPwd);
-				data.add(ud);
+				return true;
+			}else{
+				return false;
 			}
 
 		} catch (SQLException e) {
@@ -135,7 +136,7 @@ public class UserDAO {
 				e.printStackTrace();
 			}
 		}
-		return data;
+		return false;
 
 
 	}

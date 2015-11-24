@@ -126,10 +126,10 @@ public class AddMovieInfoDialog extends JDialog {
 		moviedata.setMovieName(sMovieName);
 		moviedata.setDirector(sDirector);
 		moviedata.setGenre(sGenre);
-		moviedata.setMtime(sMtime);     // <---뭘까... 필요한가?
+		moviedata.setMtime(sMtime);    
 		moviedata.setActor(sActor);
 		moviedata.setBanch(sBanch);
-		moviedata.setMdate(sMdate);		// <---뭘까.... 필요한가?
+		moviedata.setMdate(sMdate);		
 
 		return moviedata;
 
