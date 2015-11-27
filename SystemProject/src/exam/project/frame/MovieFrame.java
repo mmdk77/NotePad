@@ -12,6 +12,7 @@ import exam.project.dialog.AccountBankDialog;
 import exam.project.dialog.JoinDialog;
 import exam.project.dialog.LoginDialog;
 import exam.project.dialog.MovieInfoDialog;
+import exam.project.server.ConnectServer;
 
 
 public class MovieFrame extends JFrame{
@@ -24,7 +25,7 @@ public class MovieFrame extends JFrame{
 	private JMenuItem login,join,exit;
 	private SpinnerModel model;
 	private JSpinner spinner;
-	
+
 	private Container con = getContentPane();
 
 	public MovieFrame(){	//영화예매화면
@@ -34,7 +35,6 @@ public class MovieFrame extends JFrame{
 		this.setSize(300,350);
 
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
 
 		createMenuBar();
 		movieInfo();
@@ -56,13 +56,13 @@ public class MovieFrame extends JFrame{
 		login = new JMenuItem("로그인");
 		join = new JMenuItem("회원가입");
 		exit = new JMenuItem("종료");
-		
+
 
 		homeMenu.add(login);	//홈메뉴에 "로그인" 추가
 		homeMenu.add(join);		//홈메뉴에 "회원가입"추가
 		homeMenu.add(exit);		//홈메뉴에 "종료" 추가
-		
-		
+
+
 		menubar.add(homeMenu);
 
 
@@ -78,16 +78,16 @@ public class MovieFrame extends JFrame{
 		movie_3 = new JButton(new ImageIcon("메이즈러너.png"));
 		movie_4 = new JButton(new ImageIcon("탐정.png"));
 		movie_5 = new JButton(new ImageIcon("암살.png"));
-		
+
 		panel_2.add(movie_1);
-		
+
 		panel_1 = new JPanel();
 		con.add(panel_1);
 		ago = new JButton("◀");
 		next = new JButton("▶");
 		reservetion = new JButton("예매");
 		cancel = new JButton("취소");
-		
+
 		panel_1.setLayout(new BoxLayout(panel_1, BoxLayout.X_AXIS));
 		panel_1.add(ago);
 		panel_1.add(next);
@@ -103,32 +103,31 @@ public class MovieFrame extends JFrame{
 		lb1 = new JLabel(" 날짜/시간 "); //날짜: 년/월/일
 		panel_3 = new JPanel();
 		con.add(panel_3);
-		
+
 		panel_3.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		panel_3.add(lb1);
 		panel_3.add(spinner);
 
-
 	}//end of movieSchedule
 
 	public void addEventListener(){
-		
+
 		//menuBar 이벤트
 		login.addActionListener(new EventListener());
 		join.addActionListener(new EventListener());
-		
+
 		//화면 버튼 이벤트
 		reservetion.addActionListener(new EventListener());
 		movie_1.addActionListener(new EventListener());
-		
-		
+
+
 		//종료
 		cancel.addActionListener(new EventListener());
 		exit.addActionListener(new EventListener());
 
 	}//end of addEventListener
 
-	class EventListener implements ActionListener,ListSelectionListener{
+	class EventListener implements ActionListener{
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
@@ -148,16 +147,30 @@ public class MovieFrame extends JFrame{
 			}else if(obj == ago){
 				//버튼 image 바꿔야함
 			}else if(obj == next){
-				//버튼 image 바꿔야함
+				panel_2.removeAll();
+				panel_2.add(movie_1);
+				movie_1.updateUI();
+				if(obj == next){
+					panel_2.removeAll();
+					panel_2.add(movie_2);
+					movie_2.updateUI();
+				}else if(obj == next){
+					panel_2.removeAll();
+					panel_2.add(movie_3);
+					movie_3.updateUI();
+				}else if(obj == next){
+					panel_2.removeAll();
+					panel_2.add(movie_4);
+					movie_4.updateUI();
+				}
+				else if(obj == next){
+					panel_2.removeAll();
+					panel_2.add(movie_5);
+					movie_5.updateUI();
+				}
 			}
-
 		}//end of actionPerformed
 
-		@Override
-		public void valueChanged(ListSelectionEvent e) {
-			// TODO Auto-generated method stub
-
-		}
 	}//end of EventActionClass
 
 }//end of class

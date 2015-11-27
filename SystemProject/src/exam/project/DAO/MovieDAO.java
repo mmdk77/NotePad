@@ -1,24 +1,30 @@
 package exam.project.DAO;
 
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.net.ServerSocket;
+import java.net.Socket;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 import exam.project.DTO.Movie;
 import exam.project.DTO.UserData;
+import exam.project.server.ConnectServer;
 
-public class MovieDAO {
-
+public class MovieDAO extends Thread{
+	
+	//DB필드
 	private Connection con;
 	private PreparedStatement pstmt;
 	private ResultSet rs;
-
 	
 	
-	//DB연결
+	//DB
 	public MovieDAO(){
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
@@ -30,8 +36,7 @@ public class MovieDAO {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	}//end of MovieDAO
-	
+	}//end of MovieDAO-DB
 	
 	//영화정보등록
 	public boolean insertMovie(Movie movie){
@@ -39,7 +44,6 @@ public class MovieDAO {
 		String sql = "insert into movie values(?,?,?,?,?,?,?)";
 
 		boolean ok = false;
-
 
 		try {
 			pstmt = con.prepareStatement(sql);
@@ -66,7 +70,7 @@ public class MovieDAO {
 			e.printStackTrace();
 		}
 		return ok;
-	}// end of insertUser
+	}// end of insertUser -DB
 	
 	//영화정보확인
 	public ArrayList<Movie> viewMovieInfo(){
@@ -91,10 +95,7 @@ public class MovieDAO {
 			e.printStackTrace();
 		}
 		
-		return data;
-		
-	}
+		return data;	
+	}//end of viewMovieInfo -DB
 	
-
-
 }

@@ -1,5 +1,7 @@
 package exam.project.DTO;
 
+import exam.project.server.ConnectServer;
+
 public class UserData {
 	
 	private String id;
@@ -7,6 +9,8 @@ public class UserData {
 	private String rePwd;
 	private String name;
 	private String sex;
+	
+	ConnectServer conServer;
 	
 	
 	public UserData(String id,String pwd,String rePwd,String name,String sex){
@@ -20,10 +24,10 @@ public class UserData {
 		this.id = id;
 		this.pwd = pwd;
 	}
-	
-	public UserData(){
-		
+	public UserData() {
+		// TODO Auto-generated constructor stub
 	}
+	
 	public String getId() {
 		return id;
 	}

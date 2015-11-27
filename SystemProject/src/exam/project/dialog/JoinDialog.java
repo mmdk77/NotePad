@@ -153,9 +153,9 @@ public class JoinDialog extends JDialog{
 				boolean ok = dao.insertUser(data);
 				System.out.println("insertMember() 호출 종료");
 				if(ok){
-					JOptionPane.showInputDialog(this, "가입이 완료 되었습니다.");
+					JOptionPane.showMessageDialog(null, "가입이 완료 되었습니다.");
 				}else{
-					JOptionPane.showInputDialog(this, "가입이 정상적으로 처리되지 못했습니다.");
+					JOptionPane.showMessageDialog(null, "가입이 정상적으로 처리되지 못했습니다.");
 				}
 			}else if(obj == cancel){
 				JoinDialog.this.dispose();

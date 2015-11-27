@@ -3,10 +3,18 @@ package exam.project.dialog;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.net.Socket;
 import java.util.ArrayList;
 import javax.swing.*;
 import exam.project.DAO.UserDAO;
 import exam.project.DTO.UserData;
+import exam.project.frame.ConnectClient;
 import exam.project.frame.MovieFrame;
 
 public class LoginDialog extends JDialog {
@@ -19,6 +27,8 @@ public class LoginDialog extends JDialog {
 	private JTextField idInput;
 	private JPasswordField pwdInput;
 	private Container con = getContentPane();
+
+	ConnectClient conClient;
 
 	public LoginDialog(MovieFrame mf){
 
@@ -39,7 +49,6 @@ public class LoginDialog extends JDialog {
 		panel_3 = new JPanel();
 		id = new JLabel("      ID");
 		pwd = new JLabel("Password");
-		test = new JLabel("버튼 이벤트 확인용");
 		panel_1.setLayout(new GridLayout(0, 1, 0, 0));
 
 		panel_1.add(id);
@@ -57,7 +66,6 @@ public class LoginDialog extends JDialog {
 
 		panel_3.add(btnLogin);
 		panel_3.add(btnClose);
-		panel_3.add(test);
 
 		con.add(panel_1,"West");
 		con.add(panel_2,"Center");
@@ -73,24 +81,26 @@ public class LoginDialog extends JDialog {
 	}//end of eventListener
 
 	class EventListener implements ActionListener{
-		UserData ud = new UserData();
-		UserDAO dao = new UserDAO();
 
+	
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			// TODO Auto-generated method stub
 			Object obj = e.getSource();
 			
+			UserData ud = new UserData();
+			UserDAO dao = new UserDAO();
 			if(obj == btnLogin){
+				String strId = idInput.getText();
 				char[] strPwd = pwdInput.getPassword();
-				String pwd = null;
-				pwd = String.copyValueOf(strPwd);
-				System.out.println("Id,Pwd:"+idInput.getText()+","+pwd);
-				
-				if(dao.userLogin(idInput.getText(), pwd)){
-					JOptionPane.showMessageDialog(null, idInput.getText()+"님 환영합니다.");
+				String strpwd = null;
+				strpwd = String.copyValueOf(strPwd);			
+	
+				if(dao.userLogin(strId, strpwd)){	
+					System.out.println("Id,Pwd:"+strId+","+strpwd);
+					JOptionPane.showMessageDialog(null, strId+"님 환영합니다.");
 					LoginDialog.this.dispose();
-				}else if(!dao.userLogin(idInput.getText(), pwd)){
+				}else if(!dao.userLogin(strId, strpwd)){
 					JOptionPane.showMessageDialog(null, "아이디/패스워드가 잘못되었습니다.");
 				}
 			}//end of if
