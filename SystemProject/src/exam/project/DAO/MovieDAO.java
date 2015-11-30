@@ -34,7 +34,7 @@ public class MovieDAO extends Thread{
 	//영화정보등록
 	public boolean insertMovie(Movie movie){
 
-		String sql = "insert into movie values(?,?,?,?,?,?,?)";
+		String sql = "insert into movie values(?,?,?,?,?,?,?,?)";
 
 		boolean ok = false;
 
@@ -48,6 +48,7 @@ public class MovieDAO extends Thread{
 			pstmt.setString(5, movie.getMdate());
 			pstmt.setString(6, movie.getBanch());
 			pstmt.setString(7, movie.getMovieName());
+			pstmt.setString(8, movie.getStory());
 			
 			int rs = pstmt.executeUpdate();
 
@@ -79,8 +80,9 @@ public class MovieDAO extends Thread{
 				String sGenre = rs.getString("genre");
 				String sMtime = rs.getString("mtime");
 				String sMdate = rs.getString("mdate");
+				String sStory = rs.getString("story");
 				
-				Movie mo = new Movie(sDirector,sActor, sGenre, sMtime, sMdate);
+				Movie mo = new Movie(sDirector,sActor, sGenre, sMtime, sMdate, sStory);
 				data.add(mo);
 			}
 		} catch (SQLException e) {

@@ -9,14 +9,17 @@ public class Movie {
 	private String movieName;
 	private String banch;
 	private String mdate;
+	private String story;
 	
-	public Movie(String director,String actor, String genre, String mtime, String mdate){
+
+	public Movie(String director,String actor, String genre, String mtime, String mdate, String story){
 	
 		this.director = director;
 		this.actor = actor;
 		this.genre = genre;
 		this.mtime = mtime;
 		this.mdate = mdate;
+		this.story = story;
 		
 	}
 	public Movie(){
@@ -64,7 +67,12 @@ public class Movie {
 	}
 	public String getMovieName(){
 		return movieName;
-		
+	}
+	public String getStory() {
+		return story;
+	}
+	public void setStory(String story) {
+		this.story = story;
 	}
 	
 }
