@@ -32,7 +32,7 @@ public class MovieInfoDialog extends JDialog {
 	private JScrollPane sp;
 	private JPanel panel_1,panel_2,panel_3,panel_4,panel_5,panel_6;
 	private JLabel lb_1,lb_2,lb_3,lb_4,lb_5;
-	private JTextField tf_1,tf_2,tf_3,tf_4,tf_5;
+	private JTextField tf_1,tf_2,tf_3,tf_4,tf_5;//,tf_6;
 	private JButton img_1,img_2,img_3,img_4,img_5;
 
 
@@ -124,8 +124,8 @@ public class MovieInfoDialog extends JDialog {
 		panel_2.add(panel_6);
 
 		panel_3 = new JPanel();
-		ta = new JTextArea(10,30);
-		ta.setText("선택하셈");
+		ta = new JTextArea("사도.txt",10,30);
+
 		panel_3.add(ta);
 
 		panel_4 = new JPanel(new GridLayout(2, 1));

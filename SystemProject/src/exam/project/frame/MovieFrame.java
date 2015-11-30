@@ -1,5 +1,7 @@
 package exam.project.frame;
 
+
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -14,6 +16,7 @@ import exam.project.dialog.LoginDialog;
 import exam.project.dialog.MovieInfoDialog;
 
 
+
 public class MovieFrame extends JFrame{
 
 	private JPanel panel_1,panel_2,panel_3;
@@ -24,7 +27,11 @@ public class MovieFrame extends JFrame{
 	private JMenuItem login,join,exit;
 	private SpinnerModel model;
 	private JSpinner spinner;
-
+	private ImageIcon icon;
+	
+	private int cnt = 0;
+	
+	
 	private Container con = getContentPane();
 
 	public MovieFrame(){	//영화예매화면
@@ -35,10 +42,24 @@ public class MovieFrame extends JFrame{
 
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+
 		createMenuBar();
 		movieInfo();
 		movieSchedule();
 		addEventListener();
+                 
+                icon = new ImageIcon("123.JPG");
+
+		  // 백그라운드 이미지 삽입할 메소드에 이름없는 클래스로 구현
+		  JPanel panel = new JPanel() {
+		   public void paintComponent(Graphics g) {
+		  
+		    g.drawImage(icon.getImage(), 0, 0, null);
+		
+		    setOpaque(false);
+		    super.paintComponent(g);
+		   }
+		  };
 
 		this.setVisible(true);
 	} //end of MoiveFrame
@@ -55,13 +76,13 @@ public class MovieFrame extends JFrame{
 		login = new JMenuItem("로그인");
 		join = new JMenuItem("회원가입");
 		exit = new JMenuItem("종료");
-
+		
 
 		homeMenu.add(login);	//홈메뉴에 "로그인" 추가
 		homeMenu.add(join);		//홈메뉴에 "회원가입"추가
 		homeMenu.add(exit);		//홈메뉴에 "종료" 추가
-
-
+		
+		
 		menubar.add(homeMenu);
 
 
@@ -77,16 +98,16 @@ public class MovieFrame extends JFrame{
 		movie_3 = new JButton(new ImageIcon("메이즈러너.png"));
 		movie_4 = new JButton(new ImageIcon("탐정.png"));
 		movie_5 = new JButton(new ImageIcon("암살.png"));
-
+		
 		panel_2.add(movie_1);
-
+		
 		panel_1 = new JPanel();
 		con.add(panel_1);
 		ago = new JButton("◀");
 		next = new JButton("▶");
 		reservetion = new JButton("예매");
 		cancel = new JButton("취소");
-
+		
 		panel_1.setLayout(new BoxLayout(panel_1, BoxLayout.X_AXIS));
 		panel_1.add(ago);
 		panel_1.add(next);
@@ -102,32 +123,37 @@ public class MovieFrame extends JFrame{
 		lb1 = new JLabel(" 날짜/시간 "); //날짜: 년/월/일
 		panel_3 = new JPanel();
 		con.add(panel_3);
-
+		
 		panel_3.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		panel_3.add(lb1);
 		panel_3.add(spinner);
 
+
 	}//end of movieSchedule
 
 	public void addEventListener(){
-
+		
 		//menuBar 이벤트
 		login.addActionListener(new EventListener());
 		join.addActionListener(new EventListener());
-
+		
 		//화면 버튼 이벤트
 		reservetion.addActionListener(new EventListener());
 		movie_1.addActionListener(new EventListener());
-
-
+		movie_2.addActionListener(new EventListener());
+		movie_3.addActionListener(new EventListener());
+		movie_4.addActionListener(new EventListener());
+		movie_5.addActionListener(new EventListener());
+		
+		ago.addActionListener(new EventListener());
+		next.addActionListener(new EventListener());
 		//종료
 		cancel.addActionListener(new EventListener());
 		exit.addActionListener(new EventListener());
 
 	}//end of addEventListener
 
-	class EventListener implements ActionListener{
-
+	class EventListener implements ActionListener,ListSelectionListener{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			// TODO Auto-generated method stub
@@ -137,39 +163,86 @@ public class MovieFrame extends JFrame{
 				LoginDialog login = new LoginDialog(MovieFrame.this);
 			}else if(obj == reservetion){
 				AccountBankDialog bank = new AccountBankDialog(MovieFrame.this);
-			}else if(obj == movie_1){
+			}else if(obj == movie_1||obj == movie_2||obj == movie_3||obj == movie_4||obj == movie_5){
 				MovieInfoDialog mid = new MovieInfoDialog(MovieFrame.this);
 			}else if(obj == join){
 				JoinDialog join = new JoinDialog(MovieFrame.this);
 			}else if(obj == cancel || obj == exit){
 				System.exit(0);
 			}else if(obj == ago){
-				//버튼 image 바꿔야함
-			}else if(obj == next){
-				panel_2.removeAll();
-				panel_2.add(movie_1);
-				movie_1.updateUI();
-				if(obj == next){
+				cnt--;
+				if(cnt < 0){
+					cnt = 4;
+				}
+				if(cnt == 0){
+					panel_2.removeAll();
+					panel_2.add(movie_1);
+					movie_1.updateUI();
+
+				}else if(cnt == 1){
 					panel_2.removeAll();
 					panel_2.add(movie_2);
 					movie_2.updateUI();
-				}else if(obj == next){
+	
+				}else if(cnt == 2){
 					panel_2.removeAll();
 					panel_2.add(movie_3);
-					movie_3.updateUI();
-				}else if(obj == next){
+					movie_3.updateUI();									
+
+				}else if(cnt == 3){			
 					panel_2.removeAll();
 					panel_2.add(movie_4);
 					movie_4.updateUI();
-				}
-				else if(obj == next){
+
+				}else if(cnt == 4){
 					panel_2.removeAll();
 					panel_2.add(movie_5);
 					movie_5.updateUI();
+
 				}
+
+			}else if(obj == next){
+				cnt++;
+				if(cnt > 4){
+
+					cnt = 0;
+				}
+				if(cnt == 0){
+					panel_2.removeAll();
+					panel_2.add(movie_1);
+					movie_1.updateUI();
+
+				}else if(cnt == 1){
+					panel_2.removeAll();
+					panel_2.add(movie_2);
+					movie_2.updateUI();
+
+				}else if(cnt == 2){
+					panel_2.removeAll();
+					panel_2.add(movie_3);
+					movie_3.updateUI();
+
+				}else if(cnt == 3){
+					panel_2.removeAll();
+					panel_2.add(movie_4);
+					movie_4.updateUI();
+
+				}else if(cnt == 4){
+					panel_2.removeAll();
+					panel_2.add(movie_5);
+					movie_5.updateUI();
+
+				}             	
 			}
+	
+
 		}//end of actionPerformed
 
+		@Override
+		public void valueChanged(ListSelectionEvent e) {
+			// TODO Auto-generated method stub
+
+		}
 	}//end of EventActionClass
 
 }//end of class

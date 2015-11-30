@@ -22,7 +22,7 @@ public class LoginDialog extends JDialog {
 	public static final String CloseAction = null;
 	private MovieFrame mf;
 	private JButton btnLogin,btnClose;
-	private JLabel id,pwd,test;
+	private JLabel id,pwd;
 	private JPanel panel_1,panel_2,panel_3;
 	private JTextField idInput;
 	private JPasswordField pwdInput;
@@ -82,20 +82,19 @@ public class LoginDialog extends JDialog {
 
 	class EventListener implements ActionListener{
 
-	
+
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			// TODO Auto-generated method stub
 			Object obj = e.getSource();
-			
 			UserData ud = new UserData();
 			UserDAO dao = new UserDAO();
+
 			if(obj == btnLogin){
 				String strId = idInput.getText();
 				char[] strPwd = pwdInput.getPassword();
 				String strpwd = null;
 				strpwd = String.copyValueOf(strPwd);			
-	
 				if(dao.userLogin(strId, strpwd)){	
 					System.out.println("Id,Pwd:"+strId+","+strpwd);
 					JOptionPane.showMessageDialog(null, strId+"님 환영합니다.");
