@@ -6,7 +6,6 @@ use database
 show tables
 
 create table userData(
-
 ID			varchar(20) primary key,
 PWD			varchar(20),
 REPWD		varchar(20),
@@ -19,6 +18,7 @@ select * from movie
 
 show databases
 drop table movie;
+drop table userdata;
 
 create table movie(
 
@@ -37,3 +37,6 @@ insert into movie values('류승완','황정민,유아인 외',',액션,드라마','123분','201
 insert into movie values('웨스볼','딜런 오브라이언,토마스 생스터 외','액션,SF','132분','2015.09.16','100','메이즈러너');
 insert into movie values('김정훈','권상우,성동일 외','코미디,범죄','120분','2015.09.24','100','탐정');
 insert into movie values('최동훈','이정재,전지현 외','액션,드라마','139분','2015.07.22','100','암살');
+
+--회원가입
+insert into userdata values('mmdk','1234','1234','이선용','male');

@@ -8,7 +8,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import exam.project.DTO.UserData;
-import exam.project.frame.ConnectClient;
+import exam.project.socket.ConnectClient;
+
 
 public class UserDAO extends Thread{
 

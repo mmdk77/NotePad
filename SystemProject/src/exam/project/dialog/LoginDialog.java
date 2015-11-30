@@ -14,8 +14,8 @@ import java.util.ArrayList;
 import javax.swing.*;
 import exam.project.DAO.UserDAO;
 import exam.project.DTO.UserData;
-import exam.project.frame.ConnectClient;
 import exam.project.frame.MovieFrame;
+import exam.project.socket.ConnectClient;
 
 public class LoginDialog extends JDialog {
 

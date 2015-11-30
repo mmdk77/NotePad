@@ -1,20 +1,13 @@
 package exam.project.DAO;
 
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.net.ServerSocket;
-import java.net.Socket;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Scanner;
-
 import exam.project.DTO.Movie;
-import exam.project.DTO.UserData;
-import exam.project.server.ConnectServer;
 
 public class MovieDAO extends Thread{
 	

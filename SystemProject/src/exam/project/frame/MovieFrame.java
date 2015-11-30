@@ -12,7 +12,6 @@ import exam.project.dialog.AccountBankDialog;
 import exam.project.dialog.JoinDialog;
 import exam.project.dialog.LoginDialog;
 import exam.project.dialog.MovieInfoDialog;
-import exam.project.server.ConnectServer;
 
 
 public class MovieFrame extends JFrame{

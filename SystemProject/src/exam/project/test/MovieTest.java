@@ -1,9 +1,8 @@
 package exam.project.test;
 
-import exam.project.DAO.UserDAO;
 import exam.project.DTO.UserData;
 import exam.project.frame.MovieFrame;
-import exam.project.server.ConnectServer;
+import exam.project.socket.ConnectServer;
 
 public class MovieTest {
 
