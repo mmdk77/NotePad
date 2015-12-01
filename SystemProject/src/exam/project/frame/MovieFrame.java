@@ -162,7 +162,8 @@ public class MovieFrame extends JFrame{
 			if(obj == login){
 				LoginDialog login = new LoginDialog(MovieFrame.this);
 			}else if(obj == reservetion){
-				AccountBankDialog bank = new AccountBankDialog(MovieFrame.this);
+				//AccountBankDialog bank = new AccountBankDialog(MovieFrame.this); --결제 진행 완성 X
+				JOptionPane.showMessageDialog(null, "예매 되었습니다.");
 			}else if(obj == movie_1||obj == movie_2||obj == movie_3||obj == movie_4||obj == movie_5){
 				MovieInfoDialog mid = new MovieInfoDialog(MovieFrame.this);
 			}else if(obj == join){

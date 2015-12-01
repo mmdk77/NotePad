@@ -3,6 +3,7 @@ package exam.project.server;
 import javax.swing.*;
 
 import exam.project.dialog.AddMovieInfoDialog;
+import exam.project.dialog.CreatorInfoDialog;
 import exam.project.dialog.MovieInfoDialog;
 import exam.project.dialog.UserInfoDialog;
 
@@ -12,7 +13,7 @@ import java.awt.event.ActionListener;
 
 public class ServerFrame extends JFrame{
 	
-	private JButton movieInfo,addMovieInfo,reservation,userInfo;
+	private JButton movieInfo,addMovieInfo,aboutInfo,userInfo;
 	private JLabel serverName;
 	private Container con = getContentPane();
 	
@@ -30,7 +31,7 @@ public class ServerFrame extends JFrame{
 		moiveInfo();
 		addMovieInfo();
 		userInfo();
-		reservation();
+		aboutInfo();
 		addEventListener();
 		
 		this.setVisible(true);
@@ -51,10 +52,10 @@ public class ServerFrame extends JFrame{
 
 	}//end of addMovieInfo
 	
-	public void reservation(){
+	public void aboutInfo(){
 		
-		reservation = new JButton("예매율");
-		con.add(reservation);
+		aboutInfo = new JButton("만든사람&정보");
+		con.add(aboutInfo);
 		
 	}//end of reservation
 	
@@ -70,6 +71,7 @@ public class ServerFrame extends JFrame{
 		movieInfo.addActionListener(new EventListener());
 		userInfo.addActionListener(new EventListener());
 		addMovieInfo.addActionListener(new EventListener());
+		aboutInfo.addActionListener(new EventListener());
 		
 	}//end of EventListener
 	
@@ -88,6 +90,9 @@ public class ServerFrame extends JFrame{
 			}
 			else if(obj == addMovieInfo){
 				AddMovieInfoDialog ami = new AddMovieInfoDialog(ServerFrame.this);
+			}
+			else if(obj == aboutInfo){
+				CreatorInfoDialog cid = new CreatorInfoDialog(ServerFrame.this);
 			}
 		}//end of actionPerformed
 		

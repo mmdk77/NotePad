@@ -41,7 +41,7 @@ public class MovieInfoDialog extends JDialog {
 	public MovieInfoDialog(ServerFrame sf){
 
 		super(sf,"영화정보",false);
-		this.setSize(500,550);
+		this.setSize(600,550);
 
 		movieInfoUi();
 		addEventListener();
@@ -52,7 +52,7 @@ public class MovieInfoDialog extends JDialog {
 	public MovieInfoDialog(MovieFrame mf){
 
 		super(mf,"영화정보",false);
-		this.setSize(500,550);
+		this.setSize(600,550);
 
 		movieInfoUi();
 		addEventListener();
@@ -127,7 +127,7 @@ public class MovieInfoDialog extends JDialog {
 		panel_3 = new JPanel();
 		ta = new JTextArea(50,40);
 
-		panel_3.add(ta,BorderLayout.CENTER);
+		panel_3.add(ta,"Center");
 
 		panel_4 = new JPanel(new GridLayout(2, 1));
 		panel_4.add(panel_2);
@@ -152,8 +152,8 @@ public class MovieInfoDialog extends JDialog {
 		public void valueChanged(ListSelectionEvent e) {
 			// TODO Auto-generated method stub
 
-			if(movieList.getSelectedValue() == "사도"){
-				for(int i = 0; i<data.size(); i++){
+			for(int i = 0; i<data.size(); i++){
+				if(movieList.getSelectedValue() == "사도"){
 					mo = data.get(0);
 					String director = mo.getDirector();
 					String actor = mo.getActor();
@@ -161,7 +161,7 @@ public class MovieInfoDialog extends JDialog {
 					String mtime = mo.getMtime();
 					String mdate = mo.getMdate();
 					String story = mo.getStory();
-					
+
 					panel_5.removeAll();
 					panel_5.add(img_1);
 					img_1.updateUI();
@@ -172,9 +172,8 @@ public class MovieInfoDialog extends JDialog {
 					tf_4.setText(mtime);
 					tf_5.setText(mdate);
 					ta.setText(story);
-				}
-			}else if(movieList.getSelectedValue() == "베테랑"){
-				for(int i = 0; i<data.size(); i++){
+
+				}else if(movieList.getSelectedValue() == "베테랑"){
 					mo = data.get(1);
 					String director = mo.getDirector();
 					String actor = mo.getActor();
@@ -182,7 +181,7 @@ public class MovieInfoDialog extends JDialog {
 					String mtime = mo.getMtime();
 					String mdate = mo.getMdate();
 					String story = mo.getStory();
-					
+
 					panel_5.removeAll();
 					panel_5.add(img_2);
 					img_2.updateUI();
@@ -194,9 +193,8 @@ public class MovieInfoDialog extends JDialog {
 					tf_5.setText(mdate);
 					ta.setText(story);
 
-				}
-			}else if(movieList.getSelectedValue() == "메이즈러너"){
-				for(int i = 0; i<data.size(); i++){
+
+				}else if(movieList.getSelectedValue() == "메이즈러너"){
 					mo = data.get(2);
 					String director = mo.getDirector();
 					String actor = mo.getActor();
@@ -204,7 +202,7 @@ public class MovieInfoDialog extends JDialog {
 					String mtime = mo.getMtime();
 					String mdate = mo.getMdate();
 					String story = mo.getStory();
-					
+
 					panel_5.removeAll();
 					panel_5.add(img_3);
 					img_3.updateUI();
@@ -215,9 +213,8 @@ public class MovieInfoDialog extends JDialog {
 					tf_4.setText(mtime);
 					tf_5.setText(mdate);
 					ta.setText(story);
-				}
-			}else if(movieList.getSelectedValue() == "탐정"){
-				for(int i = 0; i<data.size(); i++){
+
+				}else if(movieList.getSelectedValue() == "탐정"){
 					mo = data.get(3);
 					String director = mo.getDirector();
 					String actor = mo.getActor();
@@ -225,7 +222,7 @@ public class MovieInfoDialog extends JDialog {
 					String mtime = mo.getMtime();
 					String mdate = mo.getMdate();
 					String story = mo.getStory();
-					
+
 					panel_5.removeAll();
 					panel_5.add(img_4);
 					img_4.updateUI();
@@ -236,9 +233,8 @@ public class MovieInfoDialog extends JDialog {
 					tf_4.setText(mtime);
 					tf_5.setText(mdate);
 					ta.setText(story);
-				}
-			}else if(movieList.getSelectedValue() == "암살"){
-				for(int i = 0; i<data.size(); i++){
+
+				}else if(movieList.getSelectedValue() == "암살"){
 					mo = data.get(4);
 					String director = mo.getDirector();
 					String actor = mo.getActor();
@@ -246,7 +242,7 @@ public class MovieInfoDialog extends JDialog {
 					String mtime = mo.getMtime();
 					String mdate = mo.getMdate();
 					String story = mo.getStory();
-					
+
 					panel_5.removeAll();
 					panel_5.add(img_5);
 					img_5.updateUI();

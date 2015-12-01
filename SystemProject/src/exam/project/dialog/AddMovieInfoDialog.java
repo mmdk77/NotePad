@@ -2,11 +2,14 @@ package exam.project.dialog;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Scanner;
+
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import exam.project.DAO.MovieDAO;
 import exam.project.DTO.Movie;
@@ -152,9 +155,9 @@ public class AddMovieInfoDialog extends JDialog {
 				boolean ok = dao.insertMovie(data);
 				System.out.println("insertMovie() 호출 종료");
 				if(ok){
-					JOptionPane.showInputDialog(this, "입력이 완료 되었습니다.");
+					JOptionPane.showMessageDialog(null, "입력이 완료 되었습니다.");
 				}else{
-					JOptionPane.showInputDialog(this, "입력이 정상적으로 처리되지 못했습니다.");
+					JOptionPane.showMessageDialog(null, "입력이 정상적으로 처리되지 못했습니다.");
 				}
 			}else if(obj == btnClose){
 				AddMovieInfoDialog.this.dispose();

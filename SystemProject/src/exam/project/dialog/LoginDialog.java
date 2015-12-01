@@ -106,7 +106,6 @@ public class LoginDialog extends JDialog {
 			else if(obj == btnClose){
 				LoginDialog.this.dispose();
 			}//end of else if
-
 		}//end of actionPerformed
 	}//end of EventListenerClass
 

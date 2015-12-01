@@ -18,7 +18,6 @@ public class UserDAO extends Thread{
 	private PreparedStatement pstmt;
 	private ResultSet rs;
 	
-	ConnectClient conClient = new ConnectClient("127.0.0.1", 7070);
 	
 	public UserDAO(){
 		
@@ -54,6 +53,7 @@ public class UserDAO extends Thread{
 			int rs = pstmt.executeUpdate();
 			
 			//TCP
+			ConnectClient conClient = new ConnectClient("127.0.0.1", 7070);
 			conClient.addUserSend(user.getId(), user.getPwd(), user.getRePwd(), user.getName(), user.getSex());	//쓰고
 			conClient.receive();			//읽기
 			conClient.close();
@@ -127,6 +127,7 @@ public class UserDAO extends Thread{
 			rs = pstmt.executeQuery();	
 			
 			//TCP
+			ConnectClient conClient = new ConnectClient("127.0.0.1", 7070);
 			conClient.loginSend(id, pwd);	//쓰고
 			conClient.receive();			//읽기
 			conClient.close();
